@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Networking Foundations — Azure Fundamentals Study Guide</title>
+<meta name="description" content="Part 5 of 13: Networking Foundations. Concept maps, real project examples, hands-on portal steps, and interview Q&A.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.13.0/mermaid.min.js" defer></script>
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+<div class="app">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-brand"><a href="./index.html" style="color:inherit;text-decoration:none;"><span>Azure Fundamentals</span></a> <span class="stamp">v2.0</span></div>
+      <div class="sidebar-sub">Landing Zone Prerequisites — 13 Parts</div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search topics…">
+      </div>
+    </div>
+    <div class="nav" id="navTree">
+      
+    <details class="nav-part" data-search="part 1 — cloud computing & azure foundations">
+      <summary class="nav-part-title"><a href="part-01-cloud-computing-azure-foundations.html" class="nav-part-link">Part 1 — Cloud Computing & Azure Foundations</a></summary>
+      <div class="nav-topics">
+        <a href="part-01-cloud-computing-azure-foundations.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-01-cloud-computing-azure-foundations.html#11-what-is-cloud-computing" class="nav-topic-link" data-search="1.1 what is cloud computing?" >1.1 What is Cloud Computing?</a>
+<a href="part-01-cloud-computing-azure-foundations.html#12-cloud-deployment-models" class="nav-topic-link" data-search="1.2 cloud deployment models" >1.2 Cloud Deployment Models</a>
+<a href="part-01-cloud-computing-azure-foundations.html#13-cloud-service-models-iaas-vs-paas-vs-saas" class="nav-topic-link" data-search="1.3 cloud service models — iaas vs paas vs saas" >1.3 Cloud Service Models — IaaS vs PaaS vs SaaS</a>
+<a href="part-01-cloud-computing-azure-foundations.html#14-capex-vs-opex" class="nav-topic-link" data-search="1.4 capex vs opex" >1.4 CapEx vs OpEx</a>
+<a href="part-01-cloud-computing-azure-foundations.html#15-the-shared-responsibility-model" class="nav-topic-link" data-search="1.5 the shared responsibility model" >1.5 The Shared Responsibility Model</a>
+<a href="part-01-cloud-computing-azure-foundations.html#16-azure-global-infrastructure" class="nav-topic-link" data-search="1.6 azure global infrastructure" >1.6 Azure Global Infrastructure</a>
+<a href="part-01-cloud-computing-azure-foundations.html#17-availability-zone-vs-availability-set" class="nav-topic-link" data-search="1.7 availability zone vs availability set" >1.7 Availability Zone vs Availability Set</a>
+<a href="part-01-cloud-computing-azure-foundations.html#part-1-best-practices" class="nav-topic-link" data-search="✅ part 1 best practices" >✅ Part 1 Best Practices</a>
+<a href="part-01-cloud-computing-azure-foundations.html#part-1-interview-questions" class="nav-topic-link" data-search="🧠 part 1 — interview questions" >🧠 Part 1 — Interview Questions</a>
+<a href="part-01-cloud-computing-azure-foundations.html#part-1-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 1 — scenario-based questions" >🧩 Part 1 — Scenario-Based Questions</a>
+<a href="part-01-cloud-computing-azure-foundations.html#part-1-quick-revision" class="nav-topic-link" data-search="📋 part 1 — quick revision" >📋 Part 1 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 2 — azure hierarchy & azure resource manager">
+      <summary class="nav-part-title"><a href="part-02-azure-hierarchy-azure-resource-manager.html" class="nav-part-link">Part 2 — Azure Hierarchy & Azure Resource Manager</a></summary>
+      <div class="nav-topics">
+        <a href="part-02-azure-hierarchy-azure-resource-manager.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#21-why-does-azure-need-a-hierarchy" class="nav-topic-link" data-search="2.1 why does azure need a hierarchy?" >2.1 Why Does Azure Need a Hierarchy?</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#22-azure-tenant" class="nav-topic-link" data-search="2.2 azure tenant" >2.2 Azure Tenant</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#23-management-group" class="nav-topic-link" data-search="2.3 management group" >2.3 Management Group</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#24-subscription" class="nav-topic-link" data-search="2.4 subscription" >2.4 Subscription</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#25-resource-group-rg" class="nav-topic-link" data-search="2.5 resource group (rg)" >2.5 Resource Group (RG)</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#26-azure-resources" class="nav-topic-link" data-search="2.6 azure resources" >2.6 Azure Resources</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#27-azure-resource-manager-arm" class="nav-topic-link" data-search="2.7 azure resource manager (arm)" >2.7 Azure Resource Manager (ARM)</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#28-resource-provider" class="nav-topic-link" data-search="2.8 resource provider" >2.8 Resource Provider</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#29-control-plane-vs-data-plane" class="nav-topic-link" data-search="2.9 control plane vs data plane" >2.9 Control Plane vs Data Plane</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#210-naming-convention" class="nav-topic-link" data-search="2.10 naming convention" >2.10 Naming Convention</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#211-azure-tags" class="nav-topic-link" data-search="2.11 azure tags" >2.11 Azure Tags</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#212-resource-locks" class="nav-topic-link" data-search="2.12 resource locks" >2.12 Resource Locks</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#hands-on-create-a-resource-group-in-the-azure-portal" class="nav-topic-link" data-search="🖥️ hands-on: create a resource group in the azure portal" >🖥️ Hands-On: Create a Resource Group in the Azure Portal</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#hands-on-create-a-management-group" class="nav-topic-link" data-search="🖥️ hands-on: create a management group" >🖥️ Hands-On: Create a Management Group</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#part-2-best-practices" class="nav-topic-link" data-search="✅ part 2 best practices" >✅ Part 2 Best Practices</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#real-enterprise-architecture" class="nav-topic-link" data-search="real enterprise architecture" >Real Enterprise Architecture</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#part-2-interview-questions" class="nav-topic-link" data-search="🧠 part 2 — interview questions" >🧠 Part 2 — Interview Questions</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#part-2-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 2 — scenario-based questions" >🧩 Part 2 — Scenario-Based Questions</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#part-2-quick-revision" class="nav-topic-link" data-search="📋 part 2 — quick revision" >📋 Part 2 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 3 — governance & compliance (rbac + azure policy)">
+      <summary class="nav-part-title"><a href="part-03-governance-compliance-rbac-azure-policy.html" class="nav-part-link">Part 3 — Governance & Compliance (RBAC + Azure Policy)</a></summary>
+      <div class="nav-topics">
+        <a href="part-03-governance-compliance-rbac-azure-policy.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#31-what-is-governance" class="nav-topic-link" data-search="3.1 what is governance?" >3.1 What is Governance?</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#32-rbac-role-based-access-control" class="nav-topic-link" data-search="3.2 rbac (role-based access control)" >3.2 RBAC (Role-Based Access Control)</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#33-azure-policy" class="nav-topic-link" data-search="3.3 azure policy" >3.3 Azure Policy</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#34-azure-blueprints-legacy-know-it-dont-lead-with-it" class="nav-topic-link" data-search="3.4 azure blueprints (legacy — know it, don't lead with it)" >3.4 Azure Blueprints (Legacy — Know It, Don't Lead With It)</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#35-enterprise-governance-strategy" class="nav-topic-link" data-search="3.5 enterprise governance strategy" >3.5 Enterprise Governance Strategy</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#part-3-best-practices" class="nav-topic-link" data-search="✅ part 3 best practices" >✅ Part 3 Best Practices</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#hands-on-assign-an-rbac-role-in-the-portal" class="nav-topic-link" data-search="🖥️ hands-on: assign an rbac role in the portal" >🖥️ Hands-On: Assign an RBAC Role in the Portal</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#part-3-interview-questions" class="nav-topic-link" data-search="🧠 part 3 — interview questions" >🧠 Part 3 — Interview Questions</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#part-3-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 3 — scenario-based questions" >🧩 Part 3 — Scenario-Based Questions</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#part-3-quick-revision" class="nav-topic-link" data-search="📋 part 3 — quick revision" >📋 Part 3 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 4 — identity & access management (microsoft entra id)">
+      <summary class="nav-part-title"><a href="part-04-identity-access-management-microsoft-ent.html" class="nav-part-link">Part 4 — Identity & Access Management (Microsoft Entra ID)</a></summary>
+      <div class="nav-topics">
+        <a href="part-04-identity-access-management-microsoft-ent.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#41-what-is-identity" class="nav-topic-link" data-search="4.1 what is identity?" >4.1 What is Identity?</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#42-microsoft-entra-id-formerly-azure-active-directory" class="nav-topic-link" data-search="4.2 microsoft entra id (formerly azure active directory)" >4.2 Microsoft Entra ID (formerly Azure Active Directory)</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#43-users-groups" class="nav-topic-link" data-search="4.3 users & groups" >4.3 Users & Groups</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#44-authentication-vs-authorization" class="nav-topic-link" data-search="4.4 authentication vs authorization" >4.4 Authentication vs Authorization</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#45-service-principal" class="nav-topic-link" data-search="4.5 service principal" >4.5 Service Principal</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#46-managed-identity" class="nav-topic-link" data-search="4.6 managed identity" >4.6 Managed Identity</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#47-app-registration-vs-enterprise-application" class="nav-topic-link" data-search="4.7 app registration vs enterprise application" >4.7 App Registration vs Enterprise Application</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#48-multi-factor-authentication-mfa" class="nav-topic-link" data-search="4.8 multi-factor authentication (mfa)" >4.8 Multi-Factor Authentication (MFA)</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#49-conditional-access" class="nav-topic-link" data-search="4.9 conditional access" >4.9 Conditional Access</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#410-privileged-identity-management-pim" class="nav-topic-link" data-search="4.10 privileged identity management (pim)" >4.10 Privileged Identity Management (PIM)</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#real-identity-flows" class="nav-topic-link" data-search="real identity flows" >Real Identity Flows</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#part-4-best-practices" class="nav-topic-link" data-search="✅ part 4 best practices" >✅ Part 4 Best Practices</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#hands-on-create-a-user-in-microsoft-entra-id" class="nav-topic-link" data-search="🖥️ hands-on: create a user in microsoft entra id" >🖥️ Hands-On: Create a User in Microsoft Entra ID</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#part-4-interview-questions" class="nav-topic-link" data-search="🧠 part 4 — interview questions" >🧠 Part 4 — Interview Questions</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#part-4-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 4 — scenario-based questions" >🧩 Part 4 — Scenario-Based Questions</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#part-4-quick-revision" class="nav-topic-link" data-search="📋 part 4 — quick revision" >📋 Part 4 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part current-page" open data-search="part 5 — networking foundations">
+      <summary class="nav-part-title"><a href="part-05-networking-foundations.html" class="nav-part-link" data-current="1">Part 5 — Networking Foundations</a></summary>
+      <div class="nav-topics">
+        <a href="#concept-map" class="nav-topic-link" data-search="🗺️ concept map" data-local="1">🗺️ Concept Map</a>
+<a href="#51-ip-address-cidr" class="nav-topic-link" data-search="5.1 ip address & cidr" data-local="1">5.1 IP Address & CIDR</a>
+<a href="#52-virtual-network-vnet-subnet" class="nav-topic-link" data-search="5.2 virtual network (vnet) & subnet" data-local="1">5.2 Virtual Network (VNet) & Subnet</a>
+<a href="#53-network-interface-nic" class="nav-topic-link" data-search="5.3 network interface (nic)" data-local="1">5.3 Network Interface (NIC)</a>
+<a href="#54-nsg-asg" class="nav-topic-link" data-search="5.4 nsg & asg" data-local="1">5.4 NSG & ASG</a>
+<a href="#55-user-defined-route-udr" class="nav-topic-link" data-search="5.5 user defined route (udr)" data-local="1">5.5 User Defined Route (UDR)</a>
+<a href="#56-dns-private-dns-zone" class="nav-topic-link" data-search="5.6 dns & private dns zone" data-local="1">5.6 DNS & Private DNS Zone</a>
+<a href="#57-vnet-peering" class="nav-topic-link" data-search="5.7 vnet peering" data-local="1">5.7 VNet Peering</a>
+<a href="#58-hybrid-connectivity-vpn-gateway-vs-expressroute" class="nav-topic-link" data-search="5.8 hybrid connectivity — vpn gateway vs expressroute" data-local="1">5.8 Hybrid Connectivity — VPN Gateway vs ExpressRoute</a>
+<a href="#59-nat-gateway" class="nav-topic-link" data-search="5.9 nat gateway" data-local="1">5.9 NAT Gateway</a>
+<a href="#510-azure-firewall" class="nav-topic-link" data-search="5.10 azure firewall" data-local="1">5.10 Azure Firewall</a>
+<a href="#511-azure-bastion" class="nav-topic-link" data-search="5.11 azure bastion" data-local="1">5.11 Azure Bastion</a>
+<a href="#512-service-endpoint-vs-private-endpoint" class="nav-topic-link" data-search="5.12 service endpoint vs private endpoint" data-local="1">5.12 Service Endpoint vs Private Endpoint</a>
+<a href="#513-traffic-distribution-load-balancer-app-gateway-traffic-manager-front-door" class="nav-topic-link" data-search="5.13 traffic distribution — load balancer, app gateway, traffic manager, front door" data-local="1">5.13 Traffic Distribution — Load Balancer, App Gateway, Traffic Manager, Front Door</a>
+<a href="#enterprise-network-flow-hub-spoke-style" class="nav-topic-link" data-search="enterprise network flow (hub & spoke style)" data-local="1">Enterprise Network Flow (Hub & Spoke style)</a>
+<a href="#part-5-best-practices" class="nav-topic-link" data-search="✅ part 5 best practices" data-local="1">✅ Part 5 Best Practices</a>
+<a href="#hands-on-create-a-virtual-network-in-the-portal" class="nav-topic-link" data-search="🖥️ hands-on: create a virtual network in the portal" data-local="1">🖥️ Hands-On: Create a Virtual Network in the Portal</a>
+<a href="#part-5-interview-questions" class="nav-topic-link" data-search="🧠 part 5 — interview questions" data-local="1">🧠 Part 5 — Interview Questions</a>
+<a href="#part-5-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 5 — scenario-based questions" data-local="1">🧩 Part 5 — Scenario-Based Questions</a>
+<a href="#part-5-quick-revision" class="nav-topic-link" data-search="📋 part 5 — quick revision" data-local="1">📋 Part 5 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 6 — azure storage">
+      <summary class="nav-part-title"><a href="part-06-azure-storage.html" class="nav-part-link">Part 6 — Azure Storage</a></summary>
+      <div class="nav-topics">
+        <a href="part-06-azure-storage.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-06-azure-storage.html#61-what-is-azure-storage" class="nav-topic-link" data-search="6.1 what is azure storage?" >6.1 What is Azure Storage?</a>
+<a href="part-06-azure-storage.html#62-storage-account" class="nav-topic-link" data-search="6.2 storage account" >6.2 Storage Account</a>
+<a href="part-06-azure-storage.html#63-the-four-storage-services" class="nav-topic-link" data-search="6.3 the four storage services" >6.3 The Four Storage Services</a>
+<a href="part-06-azure-storage.html#64-managed-disk" class="nav-topic-link" data-search="6.4 managed disk" >6.4 Managed Disk</a>
+<a href="part-06-azure-storage.html#65-storage-redundancy-lrs-zrs-grs-ra-grs-gzrs" class="nav-topic-link" data-search="6.5 storage redundancy — lrs, zrs, grs, ra-grs, gzrs" >6.5 Storage Redundancy — LRS, ZRS, GRS, RA-GRS, GZRS</a>
+<a href="part-06-azure-storage.html#66-storage-security-access-keys-vs-sas-token" class="nav-topic-link" data-search="6.6 storage security — access keys vs sas token" >6.6 Storage Security — Access Keys vs SAS Token</a>
+<a href="part-06-azure-storage.html#67-storage-tiers-lifecycle-management" class="nav-topic-link" data-search="6.7 storage tiers & lifecycle management" >6.7 Storage Tiers & Lifecycle Management</a>
+<a href="part-06-azure-storage.html#68-versioning-soft-delete" class="nav-topic-link" data-search="6.8 versioning & soft delete" >6.8 Versioning & Soft Delete</a>
+<a href="part-06-azure-storage.html#69-storage-firewall-private-endpoint" class="nav-topic-link" data-search="6.9 storage firewall & private endpoint" >6.9 Storage Firewall & Private Endpoint</a>
+<a href="part-06-azure-storage.html#part-6-best-practices" class="nav-topic-link" data-search="✅ part 6 best practices" >✅ Part 6 Best Practices</a>
+<a href="part-06-azure-storage.html#hands-on-create-a-storage-account-upload-a-blob" class="nav-topic-link" data-search="🖥️ hands-on: create a storage account & upload a blob" >🖥️ Hands-On: Create a Storage Account & Upload a Blob</a>
+<a href="part-06-azure-storage.html#part-6-interview-questions" class="nav-topic-link" data-search="🧠 part 6 — interview questions" >🧠 Part 6 — Interview Questions</a>
+<a href="part-06-azure-storage.html#part-6-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 6 — scenario-based questions" >🧩 Part 6 — Scenario-Based Questions</a>
+<a href="part-06-azure-storage.html#part-6-quick-revision" class="nav-topic-link" data-search="📋 part 6 — quick revision" >📋 Part 6 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 7 — compute">
+      <summary class="nav-part-title"><a href="part-07-compute.html" class="nav-part-link">Part 7 — Compute</a></summary>
+      <div class="nav-topics">
+        <a href="part-07-compute.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-07-compute.html#71-what-is-azure-compute" class="nav-topic-link" data-search="7.1 what is azure compute?" >7.1 What is Azure Compute?</a>
+<a href="part-07-compute.html#72-virtual-machine-vm" class="nav-topic-link" data-search="7.2 virtual machine (vm)" >7.2 Virtual Machine (VM)</a>
+<a href="part-07-compute.html#73-availability-set-vs-availability-zone-recap" class="nav-topic-link" data-search="7.3 availability set vs availability zone (recap)" >7.3 Availability Set vs Availability Zone (Recap)</a>
+<a href="part-07-compute.html#74-virtual-machine-scale-set-vmss" class="nav-topic-link" data-search="7.4 virtual machine scale set (vmss)" >7.4 Virtual Machine Scale Set (VMSS)</a>
+<a href="part-07-compute.html#75-azure-app-service" class="nav-topic-link" data-search="7.5 azure app service" >7.5 Azure App Service</a>
+<a href="part-07-compute.html#76-azure-functions-serverless" class="nav-topic-link" data-search="7.6 azure functions (serverless)" >7.6 Azure Functions (Serverless)</a>
+<a href="part-07-compute.html#77-azure-kubernetes-service-aks-overview" class="nav-topic-link" data-search="7.7 azure kubernetes service (aks) — overview" >7.7 Azure Kubernetes Service (AKS) — Overview</a>
+<a href="part-07-compute.html#78-azure-container-instance-aci" class="nav-topic-link" data-search="7.8 azure container instance (aci)" >7.8 Azure Container Instance (ACI)</a>
+<a href="part-07-compute.html#79-marketplace-image-vs-custom-image" class="nav-topic-link" data-search="7.9 marketplace image vs custom image" >7.9 Marketplace Image vs Custom Image</a>
+<a href="part-07-compute.html#710-vm-extensions-boot-diagnostics" class="nav-topic-link" data-search="7.10 vm extensions & boot diagnostics" >7.10 VM Extensions & Boot Diagnostics</a>
+<a href="part-07-compute.html#enterprise-compute-architecture" class="nav-topic-link" data-search="enterprise compute architecture" >Enterprise Compute Architecture</a>
+<a href="part-07-compute.html#service-selection-guide" class="nav-topic-link" data-search="service selection guide" >Service Selection Guide</a>
+<a href="part-07-compute.html#part-7-best-practices" class="nav-topic-link" data-search="✅ part 7 best practices" >✅ Part 7 Best Practices</a>
+<a href="part-07-compute.html#hands-on-create-a-virtual-machine-in-the-portal" class="nav-topic-link" data-search="🖥️ hands-on: create a virtual machine in the portal" >🖥️ Hands-On: Create a Virtual Machine in the Portal</a>
+<a href="part-07-compute.html#part-7-interview-questions" class="nav-topic-link" data-search="🧠 part 7 — interview questions" >🧠 Part 7 — Interview Questions</a>
+<a href="part-07-compute.html#part-7-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 7 — scenario-based questions" >🧩 Part 7 — Scenario-Based Questions</a>
+<a href="part-07-compute.html#part-7-quick-revision" class="nav-topic-link" data-search="📋 part 7 — quick revision" >📋 Part 7 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 8 — security">
+      <summary class="nav-part-title"><a href="part-08-security.html" class="nav-part-link">Part 8 — Security</a></summary>
+      <div class="nav-topics">
+        <a href="part-08-security.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-08-security.html#81-what-is-azure-security" class="nav-topic-link" data-search="8.1 what is azure security?" >8.1 What is Azure Security?</a>
+<a href="part-08-security.html#82-shared-responsibility-model-applied-to-security" class="nav-topic-link" data-search="8.2 shared responsibility model (applied to security)" >8.2 Shared Responsibility Model (Applied to Security)</a>
+<a href="part-08-security.html#83-defense-in-depth" class="nav-topic-link" data-search="8.3 defense in depth" >8.3 Defense in Depth</a>
+<a href="part-08-security.html#84-zero-trust-model" class="nav-topic-link" data-search="8.4 zero trust model" >8.4 Zero Trust Model</a>
+<a href="part-08-security.html#85-microsoft-defender-for-cloud" class="nav-topic-link" data-search="8.5 microsoft defender for cloud" >8.5 Microsoft Defender for Cloud</a>
+<a href="part-08-security.html#86-azure-key-vault" class="nav-topic-link" data-search="8.6 azure key vault" >8.6 Azure Key Vault</a>
+<a href="part-08-security.html#87-encryption-at-rest-vs-in-transit" class="nav-topic-link" data-search="8.7 encryption — at rest vs in transit" >8.7 Encryption — At Rest vs In Transit</a>
+<a href="part-08-security.html#88-just-in-time-jit-vm-access" class="nav-topic-link" data-search="8.8 just-in-time (jit) vm access" >8.8 Just-In-Time (JIT) VM Access</a>
+<a href="part-08-security.html#89-layered-network-security" class="nav-topic-link" data-search="8.9 layered network security" >8.9 Layered Network Security</a>
+<a href="part-08-security.html#810-ddos-protection" class="nav-topic-link" data-search="8.10 ddos protection" >8.10 DDoS Protection</a>
+<a href="part-08-security.html#811-identity-security-recap-from-part-4-applied-here" class="nav-topic-link" data-search="8.11 identity security (recap from part 4, applied here)" >8.11 Identity Security (Recap from Part 4, Applied Here)</a>
+<a href="part-08-security.html#enterprise-security-architecture" class="nav-topic-link" data-search="enterprise security architecture" >Enterprise Security Architecture</a>
+<a href="part-08-security.html#part-8-best-practices" class="nav-topic-link" data-search="✅ part 8 best practices" >✅ Part 8 Best Practices</a>
+<a href="part-08-security.html#hands-on-create-a-key-vault-and-store-a-secret" class="nav-topic-link" data-search="🖥️ hands-on: create a key vault and store a secret" >🖥️ Hands-On: Create a Key Vault and Store a Secret</a>
+<a href="part-08-security.html#part-8-interview-questions" class="nav-topic-link" data-search="🧠 part 8 — interview questions" >🧠 Part 8 — Interview Questions</a>
+<a href="part-08-security.html#part-8-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 8 — scenario-based questions" >🧩 Part 8 — Scenario-Based Questions</a>
+<a href="part-08-security.html#part-8-quick-revision" class="nav-topic-link" data-search="📋 part 8 — quick revision" >📋 Part 8 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 9 — monitoring & observability">
+      <summary class="nav-part-title"><a href="part-09-monitoring-observability.html" class="nav-part-link">Part 9 — Monitoring & Observability</a></summary>
+      <div class="nav-topics">
+        <a href="part-09-monitoring-observability.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-09-monitoring-observability.html#91-what-is-monitoring" class="nav-topic-link" data-search="9.1 what is monitoring?" >9.1 What is Monitoring?</a>
+<a href="part-09-monitoring-observability.html#92-azure-monitor" class="nav-topic-link" data-search="9.2 azure monitor" >9.2 Azure Monitor</a>
+<a href="part-09-monitoring-observability.html#93-metrics-vs-logs" class="nav-topic-link" data-search="9.3 metrics vs logs" >9.3 Metrics vs Logs</a>
+<a href="part-09-monitoring-observability.html#94-log-analytics-workspace-kql" class="nav-topic-link" data-search="9.4 log analytics workspace & kql" >9.4 Log Analytics Workspace & KQL</a>
+<a href="part-09-monitoring-observability.html#95-azure-monitor-agent-ama" class="nav-topic-link" data-search="9.5 azure monitor agent (ama)" >9.5 Azure Monitor Agent (AMA)</a>
+<a href="part-09-monitoring-observability.html#96-diagnostic-settings" class="nav-topic-link" data-search="9.6 diagnostic settings" >9.6 Diagnostic Settings</a>
+<a href="part-09-monitoring-observability.html#97-activity-log" class="nav-topic-link" data-search="9.7 activity log" >9.7 Activity Log</a>
+<a href="part-09-monitoring-observability.html#98-alerts-action-groups" class="nav-topic-link" data-search="9.8 alerts & action groups" >9.8 Alerts & Action Groups</a>
+<a href="part-09-monitoring-observability.html#99-application-insights" class="nav-topic-link" data-search="9.9 application insights" >9.9 Application Insights</a>
+<a href="part-09-monitoring-observability.html#910-workbooks" class="nav-topic-link" data-search="9.10 workbooks" >9.10 Workbooks</a>
+<a href="part-09-monitoring-observability.html#complete-monitoring-flow" class="nav-topic-link" data-search="complete monitoring flow" >Complete Monitoring Flow</a>
+<a href="part-09-monitoring-observability.html#part-9-best-practices" class="nav-topic-link" data-search="✅ part 9 best practices" >✅ Part 9 Best Practices</a>
+<a href="part-09-monitoring-observability.html#hands-on-create-a-metric-alert-rule" class="nav-topic-link" data-search="🖥️ hands-on: create a metric alert rule" >🖥️ Hands-On: Create a Metric Alert Rule</a>
+<a href="part-09-monitoring-observability.html#part-9-interview-questions" class="nav-topic-link" data-search="🧠 part 9 — interview questions" >🧠 Part 9 — Interview Questions</a>
+<a href="part-09-monitoring-observability.html#part-9-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 9 — scenario-based questions" >🧩 Part 9 — Scenario-Based Questions</a>
+<a href="part-09-monitoring-observability.html#part-9-quick-revision" class="nav-topic-link" data-search="📋 part 9 — quick revision" >📋 Part 9 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 10 — backup & disaster recovery">
+      <summary class="nav-part-title"><a href="part-10-backup-disaster-recovery.html" class="nav-part-link">Part 10 — Backup & Disaster Recovery</a></summary>
+      <div class="nav-topics">
+        <a href="part-10-backup-disaster-recovery.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-10-backup-disaster-recovery.html#101-business-continuity-vs-disaster-recovery" class="nav-topic-link" data-search="10.1 business continuity vs disaster recovery" >10.1 Business Continuity vs Disaster Recovery</a>
+<a href="part-10-backup-disaster-recovery.html#102-recovery-services-vault-rsv" class="nav-topic-link" data-search="10.2 recovery services vault (rsv)" >10.2 Recovery Services Vault (RSV)</a>
+<a href="part-10-backup-disaster-recovery.html#103-azure-backup" class="nav-topic-link" data-search="10.3 azure backup" >10.3 Azure Backup</a>
+<a href="part-10-backup-disaster-recovery.html#104-azure-site-recovery-asr" class="nav-topic-link" data-search="10.4 azure site recovery (asr)" >10.4 Azure Site Recovery (ASR)</a>
+<a href="part-10-backup-disaster-recovery.html#105-rpo-vs-rto" class="nav-topic-link" data-search="10.5 rpo vs rto" >10.5 RPO vs RTO</a>
+<a href="part-10-backup-disaster-recovery.html#106-soft-delete-cross-region-restore" class="nav-topic-link" data-search="10.6 soft delete & cross region restore" >10.6 Soft Delete & Cross Region Restore</a>
+<a href="part-10-backup-disaster-recovery.html#107-backup-security-best-practices" class="nav-topic-link" data-search="10.7 backup security best practices" >10.7 Backup Security Best Practices</a>
+<a href="part-10-backup-disaster-recovery.html#backup-architecture" class="nav-topic-link" data-search="backup architecture" >Backup Architecture</a>
+<a href="part-10-backup-disaster-recovery.html#disaster-recovery-architecture" class="nav-topic-link" data-search="disaster recovery architecture" >Disaster Recovery Architecture</a>
+<a href="part-10-backup-disaster-recovery.html#part-10-best-practices" class="nav-topic-link" data-search="✅ part 10 best practices" >✅ Part 10 Best Practices</a>
+<a href="part-10-backup-disaster-recovery.html#hands-on-create-a-recovery-services-vault" class="nav-topic-link" data-search="🖥️ hands-on: create a recovery services vault" >🖥️ Hands-On: Create a Recovery Services Vault</a>
+<a href="part-10-backup-disaster-recovery.html#part-10-interview-questions" class="nav-topic-link" data-search="🧠 part 10 — interview questions" >🧠 Part 10 — Interview Questions</a>
+<a href="part-10-backup-disaster-recovery.html#part-10-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 10 — scenario-based questions" >🧩 Part 10 — Scenario-Based Questions</a>
+<a href="part-10-backup-disaster-recovery.html#part-10-quick-revision" class="nav-topic-link" data-search="📋 part 10 — quick revision" >📋 Part 10 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 11 — cost optimization">
+      <summary class="nav-part-title"><a href="part-11-cost-optimization.html" class="nav-part-link">Part 11 — Cost Optimization</a></summary>
+      <div class="nav-topics">
+        <a href="part-11-cost-optimization.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-11-cost-optimization.html#111-azure-pricing-model" class="nav-topic-link" data-search="11.1 azure pricing model" >11.1 Azure Pricing Model</a>
+<a href="part-11-cost-optimization.html#112-cost-management-billing" class="nav-topic-link" data-search="11.2 cost management + billing" >11.2 Cost Management + Billing</a>
+<a href="part-11-cost-optimization.html#113-azure-advisor" class="nav-topic-link" data-search="11.3 azure advisor" >11.3 Azure Advisor</a>
+<a href="part-11-cost-optimization.html#114-reservations-vs-savings-plans-vs-spot-vms" class="nav-topic-link" data-search="11.4 reservations vs savings plans vs spot vms" >11.4 Reservations vs Savings Plans vs Spot VMs</a>
+<a href="part-11-cost-optimization.html#115-auto-shutdown" class="nav-topic-link" data-search="11.5 auto shutdown" >11.5 Auto Shutdown</a>
+<a href="part-11-cost-optimization.html#116-resource-tagging-for-cost-allocation" class="nav-topic-link" data-search="11.6 resource tagging (for cost allocation)" >11.6 Resource Tagging (for Cost Allocation)</a>
+<a href="part-11-cost-optimization.html#117-cost-governance" class="nav-topic-link" data-search="11.7 cost governance" >11.7 Cost Governance</a>
+<a href="part-11-cost-optimization.html#enterprise-cost-optimization-checklist" class="nav-topic-link" data-search="enterprise cost optimization checklist" >Enterprise Cost Optimization Checklist</a>
+<a href="part-11-cost-optimization.html#enterprise-cost-flow" class="nav-topic-link" data-search="enterprise cost flow" >Enterprise Cost Flow</a>
+<a href="part-11-cost-optimization.html#part-11-best-practices" class="nav-topic-link" data-search="✅ part 11 best practices" >✅ Part 11 Best Practices</a>
+<a href="part-11-cost-optimization.html#hands-on-create-a-budget-in-the-portal" class="nav-topic-link" data-search="🖥️ hands-on: create a budget in the portal" >🖥️ Hands-On: Create a Budget in the Portal</a>
+<a href="part-11-cost-optimization.html#part-11-interview-questions" class="nav-topic-link" data-search="🧠 part 11 — interview questions" >🧠 Part 11 — Interview Questions</a>
+<a href="part-11-cost-optimization.html#part-11-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 11 — scenario-based questions" >🧩 Part 11 — Scenario-Based Questions</a>
+<a href="part-11-cost-optimization.html#part-11-quick-revision" class="nav-topic-link" data-search="📋 part 11 — quick revision" >📋 Part 11 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 12 — terraform on azure (infrastructure as code)">
+      <summary class="nav-part-title"><a href="part-12-terraform-on-azure-infrastructure-as-cod.html" class="nav-part-link">Part 12 — Terraform on Azure (Infrastructure as Code)</a></summary>
+      <div class="nav-topics">
+        <a href="part-12-terraform-on-azure-infrastructure-as-cod.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#121-what-is-infrastructure-as-code-iac" class="nav-topic-link" data-search="12.1 what is infrastructure as code (iac)?" >12.1 What is Infrastructure as Code (IaC)?</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#122-terraform-architecture" class="nav-topic-link" data-search="12.2 terraform architecture" >12.2 Terraform Architecture</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#123-azurerm-provider" class="nav-topic-link" data-search="12.3 azurerm provider" >12.3 AzureRM Provider</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#124-authentication-methods" class="nav-topic-link" data-search="12.4 authentication methods" >12.4 Authentication Methods</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#125-backend-terraform-state" class="nav-topic-link" data-search="12.5 backend & terraform state" >12.5 Backend & Terraform State</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#126-variables-outputs-data-sources" class="nav-topic-link" data-search="12.6 variables, outputs & data sources" >12.6 Variables, Outputs & Data Sources</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#127-modules" class="nav-topic-link" data-search="12.7 modules" >12.7 Modules</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#128-lifecycle-meta-arguments-depends_on" class="nav-topic-link" data-search="12.8 lifecycle meta-arguments & depends_on" >12.8 Lifecycle Meta-Arguments & depends_on</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#129-workspaces-import" class="nav-topic-link" data-search="12.9 workspaces & import" >12.9 Workspaces & Import</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#1210-enterprise-terraform-folder-structure" class="nav-topic-link" data-search="12.10 enterprise terraform folder structure" >12.10 Enterprise Terraform Folder Structure</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#1211-cicd-integration" class="nav-topic-link" data-search="12.11 ci/cd integration" >12.11 CI/CD Integration</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#enterprise-terraform-architecture" class="nav-topic-link" data-search="enterprise terraform architecture" >Enterprise Terraform Architecture</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#part-12-best-practices" class="nav-topic-link" data-search="✅ part 12 best practices" >✅ Part 12 Best Practices</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#part-12-interview-questions" class="nav-topic-link" data-search="🧠 part 12 — interview questions" >🧠 Part 12 — Interview Questions</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#part-12-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 12 — scenario-based questions" >🧩 Part 12 — Scenario-Based Questions</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#part-12-quick-revision" class="nav-topic-link" data-search="📋 part 12 — quick revision" >📋 Part 12 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 13 — what's next: the azure landing zone">
+      <summary class="nav-part-title"><a href="part-13-whats-next-the-azure-landing-zone.html" class="nav-part-link">Part 13 — What's Next: The Azure Landing Zone</a></summary>
+      <div class="nav-topics">
+        <a href="part-13-whats-next-the-azure-landing-zone.html#youve-completed-the-foundation" class="nav-topic-link" data-search="🎉 you've completed the foundation" >🎉 You've Completed the Foundation</a>
+<a href="part-13-whats-next-the-azure-landing-zone.html#what-an-azure-landing-zone-actually-is" class="nav-topic-link" data-search="what an azure landing zone actually is" >What an Azure Landing Zone Actually Is</a>
+<a href="part-13-whats-next-the-azure-landing-zone.html#what-comes-next-beyond-these-notes" class="nav-topic-link" data-search="what comes next (beyond these notes)" >What Comes Next (Beyond These Notes)</a>
+<a href="part-13-whats-next-the-azure-landing-zone.html#how-to-use-this-guide-for-interview-prep" class="nav-topic-link" data-search="📖 how to use this guide for interview prep" >📖 How to Use This Guide for Interview Prep</a>
+
+      </div>
+    </details>
+    
+    </div>
+  </nav>
+  <div class="main-wrap">
+    <main class="content" id="content">
+      <div class="page-topbar">
+<span><a href="index.html">Study Guide</a> / Part 05 of 13</span>
+<div class="progress-track"><div class="progress-fill" style="width:38%"></div></div>
+<span>38% through the course</span>
+</div><h1 id="part-5-networking-foundations">Part 5 — Networking Foundations</h1>
+<blockquote class="callout-goal">
+<p>🎯 <strong>Goal:</strong> Understand Azure networking from an enterprise and interview perspective. This is the <strong>biggest and most important</strong> prerequisite module — a strong grip on networking makes ~50% of Landing Zone concepts click automatically.</p>
+</blockquote>
+<h2 id="concept-map">🗺️ Concept Map</h2>
+<div class="mermaid">flowchart TD
+    IP["IP Address / CIDR"] --&gt; VNet["Virtual Network"]
+    VNet --&gt; Subnet["Subnet"]
+    Subnet --&gt; NIC["NIC"]
+    Subnet --&gt; NSG["NSG / ASG"]
+    VNet --&gt; Peer["VNet Peering"]
+    VNet --&gt; Hybrid["Hybrid Connectivity\n(VPN Gateway / ExpressRoute)"]
+    VNet --&gt; Outbound["Outbound Access\n(NAT Gateway)"]
+    VNet --&gt; FW["Azure Firewall"]
+    VNet --&gt; Bastion["Azure Bastion"]
+    VNet --&gt; PaaS["PaaS Access\n(Service / Private Endpoint)"]
+    VNet --&gt; LB["Traffic Distribution\n(Load Balancer / App Gateway\n/ Traffic Manager / Front Door)"]
+</div>
+<h2 id="51-ip-address-cidr">5.1 IP Address &amp; CIDR</h2>
+<p>An <strong>IP Address</strong> is a unique address identifying a device on a network.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Private IP</th>
+<th>Public IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reachable from</td>
+<td>Inside the VNet only</td>
+<td>The Internet</td>
+</tr>
+<tr>
+<td>Uniqueness</td>
+<td>Reused across different VNets</td>
+<td>Globally unique</td>
+</tr>
+<tr>
+<td>Example use</td>
+<td>Internal VM-to-VM communication</td>
+<td>SSH/RDP to a VM, a public website</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CIDR</strong> defines a network's IP range. <code>10.0.0.0/16</code> ≈ 65,536 addresses. <code>10.0.1.0/24</code> ≈ 256 addresses.</p>
+<blockquote class="callout-practice">
+<p>✅ <strong>Best Practice:</strong> Plan your CIDR ranges carefully <em>before</em> deployment — resizing a VNet's address space later is difficult and disruptive.</p>
+</blockquote>
+<h2 id="52-virtual-network-vnet-subnet">5.2 Virtual Network (VNet) &amp; Subnet</h2>
+<p>A <strong>VNet</strong> is your own private, isolated network inside Azure — all Azure resources communicate through it.</p>
+<p>A <strong>Subnet</strong> divides one VNet into smaller networks for security and traffic isolation.</p>
+<div class="mermaid">flowchart TD
+    VNet["VNet: 10.0.0.0/16"] --&gt; Web["Web Subnet\n10.0.1.0/24"]
+    VNet --&gt; App["App Subnet\n10.0.2.0/24"]
+    VNet --&gt; DB["Database Subnet\n10.0.3.0/24"]
+    VNet --&gt; Bas["Bastion Subnet"]
+    VNet --&gt; FwSub["Firewall Subnet"]
+</div>
+<blockquote class="callout-practice">
+<p>✅ <strong>Best Practice:</strong> Create separate subnets for Web, App, Database, Bastion, Firewall, and Application Gateway — never put everything in one flat subnet.</p>
+</blockquote>
+<h2 id="53-network-interface-nic">5.3 Network Interface (NIC)</h2>
+<p>The <strong>NIC</strong> is what connects a VM to a VNet — without it, a VM can't communicate at all. A NIC holds a Private IP, an optional Public IP, and an optional NSG.</p>
+<div class="mermaid">flowchart LR
+    VM["VM"] --&gt; NIC["NIC"] --&gt; Subnet["Subnet"] --&gt; VNet["VNet"]
+</div>
+<h2 id="54-nsg-asg">5.4 NSG &amp; ASG</h2>
+<p><strong>NSG (Network Security Group)</strong> acts like a firewall — it controls inbound and outbound traffic with Allow/Deny rules, applied to a Subnet or a NIC.</p>
+<pre><code>Allow SSH   (Port 22)
+Allow HTTP  (Port 80)
+Allow HTTPS (Port 443)
+Deny Everything else
+</code></pre>
+<p><strong>ASG (Application Security Group)</strong> groups VMs <em>logically</em> (e.g. "Web Servers") instead of by IP address, so NSG rules can reference the group name — much easier to manage at scale.</p>
+<div class="mermaid">flowchart LR
+    WebASG["Web ASG\n(VM1, VM2, VM3)"] -- "NSG rule: Allow" --&gt; DBASG["Database ASG"]
+</div>
+<h2 id="55-user-defined-route-udr">5.5 User Defined Route (UDR)</h2>
+<p>Azure auto-creates routes by default, but you can override them with a <strong>UDR</strong> — commonly used to force all traffic through a firewall instead of going straight to the internet.</p>
+<div class="mermaid">flowchart LR
+    VM["VM"] --&gt;|"default route (no UDR)"| Internet1["Internet"]
+    VM2["VM (with UDR)"] --&gt; FW["Azure Firewall"] --&gt; Internet2["Internet"]
+</div>
+<h2 id="56-dns-private-dns-zone">5.6 DNS &amp; Private DNS Zone</h2>
+<p><strong>DNS</strong> resolves a name like <code>google.com</code> into an IP address. Azure provides <strong>Azure DNS</strong> for public resolution and <strong>Private DNS Zones</strong> for internal name resolution — required alongside Private Endpoints, since no public DNS record exists for a privately-connected PaaS service.</p>
+<h2 id="57-vnet-peering">5.7 VNet Peering</h2>
+<p><strong>VNet Peering</strong> connects two VNets privately — resources communicate over Microsoft's backbone using private IPs, with low latency and high throughput.</p>
+<div class="mermaid">flowchart LR
+    A["VNet A"] &lt;--&gt;|Peering| B["VNet B"]
+</div>
+<h2 id="58-hybrid-connectivity-vpn-gateway-vs-expressroute">5.8 Hybrid Connectivity — VPN Gateway vs ExpressRoute</h2>
+<p>Both connect <strong>on-premises</strong> networks to Azure, but very differently.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>VPN Gateway</th>
+<th>ExpressRoute</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection</td>
+<td>Over the public Internet</td>
+<td>Private, dedicated connection</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Lower</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Speed / Latency</td>
+<td>Lower speed</td>
+<td>High speed, low latency</td>
+</tr>
+<tr>
+<td>Typical user</td>
+<td>Smaller companies</td>
+<td>Large enterprises</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="callout-interview">
+<p>🧠 <strong>Interview Angle:</strong> VPN Gateway is cheaper and good for smaller hybrid setups. ExpressRoute is the enterprise-grade choice when the internet isn't private or reliable enough.</p>
+</blockquote>
+<h2 id="59-nat-gateway">5.9 NAT Gateway</h2>
+<p><strong>NAT Gateway</strong> gives VMs <em>outbound-only</em> internet access (e.g. downloading updates) <strong>without</strong> needing a Public IP on the VM at all — no inbound access is possible.</p>
+<h2 id="510-azure-firewall">5.10 Azure Firewall</h2>
+<p>A managed <strong>Layer 3–Layer 7</strong> firewall service controlling inbound, outbound, and East-West (VNet-to-VNet) traffic using Application Rules, Network Rules, and DNAT.</p>
+<div class="mermaid">flowchart LR
+    Traffic["All Traffic"] --&gt; AzFW["Azure Firewall"] --&gt; Internet["Internet"]
+</div>
+<h2 id="511-azure-bastion">5.11 Azure Bastion</h2>
+<p><strong>Bastion</strong> provides secure RDP/SSH access to VMs <em>directly through the Azure Portal</em> — no Public IP needed on the VM, and no open RDP/SSH ports exposed to the internet.</p>
+<h2 id="512-service-endpoint-vs-private-endpoint">5.12 Service Endpoint vs Private Endpoint</h2>
+<p>Both let VNet resources reach Azure PaaS services (like Storage) more securely than over the public internet — but they work very differently.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Service Endpoint</th>
+<th>Private Endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PaaS service remains</td>
+<td>Public (but routed via Azure backbone)</td>
+<td>Fully private (gets its own private IP)</td>
+</tr>
+<tr>
+<td>Gets a Private IP?</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Security level</td>
+<td>Good</td>
+<td>Stronger</td>
+</tr>
+<tr>
+<td>Path</td>
+<td>Azure backbone</td>
+<td>Azure backbone + fully private access</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="callout-interview">
+<p>🧠 <strong>Interview Angle:</strong> <em>"Difference between Service Endpoint and Private Endpoint?" → "A Service Endpoint routes traffic to a still-public service over Azure's backbone. A Private Endpoint gives the PaaS service an actual private IP inside your VNet, making it fully private."</em></p>
+</blockquote>
+<h2 id="513-traffic-distribution-load-balancer-app-gateway-traffic-manager-front-door">5.13 Traffic Distribution — Load Balancer, App Gateway, Traffic Manager, Front Door</h2>
+<p>This four-way comparison is one of the single most common Azure networking interview questions.</p>
+<div class="mermaid">flowchart TD
+    Internet["Internet"] --&gt; FD["Azure Front Door\n(Global, Layer 7)"]
+    FD --&gt; AGW["Application Gateway\n(Regional, Layer 7 + WAF)"]
+    AGW --&gt; LB["Load Balancer\n(Layer 4)"]
+    LB --&gt; WebVM["Web VM"]
+    LB --&gt; AppVM["App VM"]
+    AppVM --&gt; DB["Database"]
+</div>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Layer</th>
+<th>Scope</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Load Balancer</strong></td>
+<td>L4 (TCP/UDP)</td>
+<td>Regional</td>
+<td>Distribute traffic across backend VMs; no SSL termination, no URL routing</td>
+</tr>
+<tr>
+<td><strong>Application Gateway</strong></td>
+<td>L7 (HTTP/HTTPS)</td>
+<td>Regional</td>
+<td>SSL termination, URL-based routing, cookie affinity, WAF</td>
+</tr>
+<tr>
+<td><strong>Traffic Manager</strong></td>
+<td>DNS-based</td>
+<td>Global</td>
+<td>Route users to the nearest/healthiest <strong>region</strong> using DNS (Priority, Performance, Weighted, Geographic)</td>
+</tr>
+<tr>
+<td><strong>Azure Front Door</strong></td>
+<td>L7, Global</td>
+<td>Global</td>
+<td>Global load balancing + SSL offloading + caching + WAF + acceleration, in one service</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="callout-project">
+<p>🏢 <strong>Real Project Example:</strong> A company has apps in Central India and East US. Users should reach the nearest healthy region automatically → <strong>Azure Front Door</strong> (for HTTP/HTTPS apps needing WAF and performance features) or <strong>Traffic Manager</strong> (if only simple DNS-based regional routing is needed).</p>
+</blockquote>
+<h2 id="enterprise-network-flow-hub-spoke-style">Enterprise Network Flow (Hub &amp; Spoke style)</h2>
+<div class="mermaid">flowchart TD
+    Internet["Internet"] --&gt; FD["Azure Front Door"]
+    FD --&gt; AGW["Application Gateway (WAF)"]
+    AGW --&gt; LB["Load Balancer"]
+    LB --&gt; WebVM["Web VM"]
+    WebVM --&gt; AppVM["App VM"]
+    AppVM --&gt; DB["Database"]
+</div>
+<h2 id="part-5-best-practices">✅ Part 5 Best Practices</h2>
+<ul>
+<li>✅ Use <strong>Hub &amp; Spoke</strong> architecture for enterprise networks.</li>
+<li>✅ Separate subnets for Web, App, DB, Bastion, Firewall, and Application Gateway.</li>
+<li>✅ Avoid <strong>Public IPs</strong> on production VMs.</li>
+<li>✅ Use <strong>Bastion</strong> for VM management instead of open RDP/SSH.</li>
+<li>✅ Use <strong>Private Endpoints</strong> for PaaS services wherever possible.</li>
+<li>✅ Write <strong>NSG</strong> rules with least-privilege in mind.</li>
+<li>✅ Route internet-bound traffic through <strong>Azure Firewall</strong> where required.</li>
+<li>✅ Use <strong>ExpressRoute</strong> for serious enterprise connectivity needs.</li>
+<li>✅ Plan <strong>CIDR</strong> ranges before you deploy anything.</li>
+</ul>
+<hr/>
+<h2 id="hands-on-create-a-virtual-network-in-the-portal">🖥️ Hands-On: Create a Virtual Network in the Portal</h2>
+<ol>
+<li>In the Portal search bar, type <strong>"Virtual networks"</strong> → select <strong>+ Create</strong>.</li>
+<li>On the <strong>Basics</strong> tab, choose your Subscription and Resource Group, then name it (e.g. <code>vnet-prod-centralindia</code>) and pick a Region.</li>
+<li>On the <strong>IP Addresses</strong> tab, set the address space (e.g. <code>10.0.0.0/16</code>) and add subnets (e.g. <code>snet-web</code> → <code>10.0.1.0/24</code>, <code>snet-app</code> → <code>10.0.2.0/24</code>).</li>
+<li>On the <strong>Security</strong> tab, optionally enable <strong>Azure Bastion</strong>, <strong>Azure Firewall</strong>, and <strong>DDoS Protection</strong> right from the creation wizard.</li>
+<li>Select <strong>Review + create</strong>, then <strong>Create</strong>.</li>
+</ol>
+<p><img alt="Virtual network architecture" decoding="async" loading="lazy" src="https://learn.microsoft.com/en-us/azure/virtual-network/media/quick-create-portal/virtual-network-qs-resources.png"/></p>
+<blockquote class="callout-tip">
+<p>💡 <strong>Try it yourself:</strong> After creating the VNet, go to <strong>Subnets</strong> → add a new subnet called <code>snet-db</code> → then go to <strong>Network Security Groups</strong> → create an NSG → attach it to <code>snet-db</code> → add a rule that only allows traffic from <code>snet-app</code>, denying everything else.</p>
+</blockquote>
+<hr/>
+<h2 id="part-5-interview-questions">🧠 Part 5 — Interview Questions</h2>
+<details class="qa-item"><summary>What is a VNet?</summary><div class="qa-answer">
+<p>A logically isolated private network in Azure that enables secure communication between Azure resources.</p>
+</div></details><details class="qa-item"><summary>What is a Subnet?</summary><div class="qa-answer">
+<p>A smaller network carved out of a VNet's address space, used to isolate and organize resources (Web, App, Database, etc.) for security and manageability.</p>
+</div></details><details class="qa-item"><summary>What is the difference between Public IP and Private IP?</summary><div class="qa-answer">
+<p>A Public IP is internet-accessible and globally unique — used for things like SSH/RDP or a public website. A Private IP is only reachable inside the VNet and is used for internal communication.</p>
+</div></details><details class="qa-item"><summary>What is an NSG?</summary><div class="qa-answer">
+<p>A Network Security Group — a firewall-like service that filters inbound and outbound traffic to a subnet or NIC using Allow/Deny rules.</p>
+</div></details><details class="qa-item"><summary>What is Azure Bastion?</summary><div class="qa-answer">
+<p>A managed service providing secure RDP/SSH access to VMs directly through the Azure Portal, without needing a Public IP on the VM or opening RDP/SSH ports to the internet.</p>
+</div></details><details class="qa-item"><summary>What is Azure Firewall?</summary><div class="qa-answer">
+<p>A managed, cloud-native firewall service (Layer 3–7) that controls inbound, outbound, and East-West traffic using application rules, network rules, and DNAT.</p>
+</div></details><details class="qa-item"><summary>What is VNet Peering?</summary><div class="qa-answer">
+<p>A way to privately connect two VNets so their resources communicate using private IPs over Azure's backbone network, with low latency.</p>
+</div></details><details class="qa-item"><summary>What is a NAT Gateway?</summary><div class="qa-answer">
+<p>A service that provides secure, scalable outbound-only internet access for resources in a subnet, without requiring a Public IP on each VM.</p>
+</div></details><details class="qa-item"><summary>What is a Private Endpoint?</summary><div class="qa-answer">
+<p>A network interface that gives an Azure PaaS service (like a Storage Account) a private IP address inside your VNet, making it accessible only from within that network.</p>
+</div></details><details class="qa-item"><summary>What is the difference between Service Endpoint and Private Endpoint?</summary><div class="qa-answer">
+<p>A Service Endpoint routes traffic to a PaaS service over the Azure backbone while the service remains publicly addressed. A Private Endpoint assigns the PaaS service an actual private IP inside your VNet, making it fully private — a stronger security posture.</p>
+</div></details><h2 id="part-5-scenario-based-questions">🧩 Part 5 — Scenario-Based Questions</h2>
+<details class="qa-item"><summary>Your Linux VM should download updates from the internet but must not be accessible from the internet. What will you do?</summary><div class="qa-answer">
+<p>Remove the Public IP from the VM and attach a NAT Gateway to its subnet. This allows outbound internet access while blocking all inbound access.</p>
+</div></details><details class="qa-item"><summary>Your Storage Account should only be accessible from your VNet. How will you secure it?</summary><div class="qa-answer">
+<p>Create a Private Endpoint for the Storage Account, configure a Private DNS Zone for name resolution, and disable public network access on the account.</p>
+</div></details><details class="qa-item"><summary>Your company has applications in Central India and East US. Users should automatically connect to the nearest healthy region. Which service will you use?</summary><div class="qa-answer">
+<p>Azure Front Door for HTTP/HTTPS applications — it provides global routing, health checks, WAF, and performance optimization. If only simple DNS-based regional routing is needed, Traffic Manager is also a valid option.</p>
+</div></details><details class="qa-item"><summary>Developers need SSH access to production VMs, but security policy doesn't allow Public IPs. What will you implement?</summary><div class="qa-answer">
+<p>Deploy Azure Bastion in the VNet and remove Public IPs from the VMs — developers connect securely through the Azure Portal via Bastion instead.</p>
+</div></details><details class="qa-item"><summary>You need to expose a web application with SSL termination and URL-based routing. Which service will you choose?</summary><div class="qa-answer">
+<p>Azure Application Gateway — a Layer 7 load balancer that supports SSL termination, URL-based routing, and Web Application Firewall (WAF).</p>
+</div></details><h2 id="part-5-quick-revision">📋 Part 5 — Quick Revision</h2>
+<ul>
+<li><strong>VNet</strong> = private network. <strong>Subnet</strong> = a division of it.</li>
+<li><strong>NIC</strong> = connects a VM to the network.</li>
+<li><strong>Public IP</strong> = internet-reachable. <strong>Private IP</strong> = internal only.</li>
+<li><strong>NSG</strong> = filters traffic. <strong>ASG</strong> = logical VM grouping for NSG rules.</li>
+<li><strong>UDR</strong> = custom routing (e.g. force traffic through a firewall).</li>
+<li><strong>DNS</strong> = resolves names to IPs. <strong>Private DNS Zone</strong> = resolution for Private Endpoints.</li>
+<li><strong>VNet Peering</strong> = private connection between two VNets.</li>
+<li><strong>VPN Gateway</strong> = hybrid link over the internet. <strong>ExpressRoute</strong> = dedicated private hybrid link.</li>
+<li><strong>NAT Gateway</strong> = outbound-only internet access, no Public IP needed.</li>
+<li><strong>Azure Firewall</strong> = managed network firewall. <strong>Bastion</strong> = secure RDP/SSH with no Public IP.</li>
+<li><strong>Service Endpoint</strong> = secure but still-public PaaS access. <strong>Private Endpoint</strong> = fully private PaaS access.</li>
+<li><strong>Load Balancer</strong> = L4. <strong>Application Gateway</strong> = L7 + WAF. <strong>Traffic Manager</strong> = DNS-based global routing. <strong>Front Door</strong> = global L7 delivery + WAF + caching.</li>
+</ul>
+<hr/><div class="part-pager"><a class="pager-link prev" href="part-04-identity-access-management-microsoft-ent.html">
+<span class="dir">← PREVIOUS</span>
+<span class="ptitle">Identity &amp; Access Management (Microsoft Entra ID)</span>
+</a><a class="pager-link next" href="part-06-azure-storage.html">
+<span class="dir">NEXT →</span>
+<span class="ptitle">Azure Storage</span>
+</a></div>
+      <div class="footer">
+        AZURE FUNDAMENTALS &amp; LANDING ZONE PREREQUISITES — INTERVIEW-READY STUDY GUIDE<br>
+        Compiled from a personal Azure DevOps interview-prep roadmap · Portal walkthroughs cross-referenced with Microsoft Learn
+      </div>
+    </main>
+  </div>
+</div>
+<script src="./assets/js/app.js" defer></script>
+</body>
+</html>

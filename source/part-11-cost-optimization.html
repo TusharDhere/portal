@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cost Optimization — Azure Fundamentals Study Guide</title>
+<meta name="description" content="Part 11 of 13: Cost Optimization. Concept maps, real project examples, hands-on portal steps, and interview Q&A.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.13.0/mermaid.min.js" defer></script>
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+<div class="app">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-brand"><a href="./index.html" style="color:inherit;text-decoration:none;"><span>Azure Fundamentals</span></a> <span class="stamp">v2.0</span></div>
+      <div class="sidebar-sub">Landing Zone Prerequisites — 13 Parts</div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search topics…">
+      </div>
+    </div>
+    <div class="nav" id="navTree">
+      
+    <details class="nav-part" data-search="part 1 — cloud computing & azure foundations">
+      <summary class="nav-part-title"><a href="part-01-cloud-computing-azure-foundations.html" class="nav-part-link">Part 1 — Cloud Computing & Azure Foundations</a></summary>
+      <div class="nav-topics">
+        <a href="part-01-cloud-computing-azure-foundations.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-01-cloud-computing-azure-foundations.html#11-what-is-cloud-computing" class="nav-topic-link" data-search="1.1 what is cloud computing?" >1.1 What is Cloud Computing?</a>
+<a href="part-01-cloud-computing-azure-foundations.html#12-cloud-deployment-models" class="nav-topic-link" data-search="1.2 cloud deployment models" >1.2 Cloud Deployment Models</a>
+<a href="part-01-cloud-computing-azure-foundations.html#13-cloud-service-models-iaas-vs-paas-vs-saas" class="nav-topic-link" data-search="1.3 cloud service models — iaas vs paas vs saas" >1.3 Cloud Service Models — IaaS vs PaaS vs SaaS</a>
+<a href="part-01-cloud-computing-azure-foundations.html#14-capex-vs-opex" class="nav-topic-link" data-search="1.4 capex vs opex" >1.4 CapEx vs OpEx</a>
+<a href="part-01-cloud-computing-azure-foundations.html#15-the-shared-responsibility-model" class="nav-topic-link" data-search="1.5 the shared responsibility model" >1.5 The Shared Responsibility Model</a>
+<a href="part-01-cloud-computing-azure-foundations.html#16-azure-global-infrastructure" class="nav-topic-link" data-search="1.6 azure global infrastructure" >1.6 Azure Global Infrastructure</a>
+<a href="part-01-cloud-computing-azure-foundations.html#17-availability-zone-vs-availability-set" class="nav-topic-link" data-search="1.7 availability zone vs availability set" >1.7 Availability Zone vs Availability Set</a>
+<a href="part-01-cloud-computing-azure-foundations.html#part-1-best-practices" class="nav-topic-link" data-search="✅ part 1 best practices" >✅ Part 1 Best Practices</a>
+<a href="part-01-cloud-computing-azure-foundations.html#part-1-interview-questions" class="nav-topic-link" data-search="🧠 part 1 — interview questions" >🧠 Part 1 — Interview Questions</a>
+<a href="part-01-cloud-computing-azure-foundations.html#part-1-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 1 — scenario-based questions" >🧩 Part 1 — Scenario-Based Questions</a>
+<a href="part-01-cloud-computing-azure-foundations.html#part-1-quick-revision" class="nav-topic-link" data-search="📋 part 1 — quick revision" >📋 Part 1 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 2 — azure hierarchy & azure resource manager">
+      <summary class="nav-part-title"><a href="part-02-azure-hierarchy-azure-resource-manager.html" class="nav-part-link">Part 2 — Azure Hierarchy & Azure Resource Manager</a></summary>
+      <div class="nav-topics">
+        <a href="part-02-azure-hierarchy-azure-resource-manager.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#21-why-does-azure-need-a-hierarchy" class="nav-topic-link" data-search="2.1 why does azure need a hierarchy?" >2.1 Why Does Azure Need a Hierarchy?</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#22-azure-tenant" class="nav-topic-link" data-search="2.2 azure tenant" >2.2 Azure Tenant</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#23-management-group" class="nav-topic-link" data-search="2.3 management group" >2.3 Management Group</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#24-subscription" class="nav-topic-link" data-search="2.4 subscription" >2.4 Subscription</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#25-resource-group-rg" class="nav-topic-link" data-search="2.5 resource group (rg)" >2.5 Resource Group (RG)</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#26-azure-resources" class="nav-topic-link" data-search="2.6 azure resources" >2.6 Azure Resources</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#27-azure-resource-manager-arm" class="nav-topic-link" data-search="2.7 azure resource manager (arm)" >2.7 Azure Resource Manager (ARM)</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#28-resource-provider" class="nav-topic-link" data-search="2.8 resource provider" >2.8 Resource Provider</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#29-control-plane-vs-data-plane" class="nav-topic-link" data-search="2.9 control plane vs data plane" >2.9 Control Plane vs Data Plane</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#210-naming-convention" class="nav-topic-link" data-search="2.10 naming convention" >2.10 Naming Convention</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#211-azure-tags" class="nav-topic-link" data-search="2.11 azure tags" >2.11 Azure Tags</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#212-resource-locks" class="nav-topic-link" data-search="2.12 resource locks" >2.12 Resource Locks</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#hands-on-create-a-resource-group-in-the-azure-portal" class="nav-topic-link" data-search="🖥️ hands-on: create a resource group in the azure portal" >🖥️ Hands-On: Create a Resource Group in the Azure Portal</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#hands-on-create-a-management-group" class="nav-topic-link" data-search="🖥️ hands-on: create a management group" >🖥️ Hands-On: Create a Management Group</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#part-2-best-practices" class="nav-topic-link" data-search="✅ part 2 best practices" >✅ Part 2 Best Practices</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#real-enterprise-architecture" class="nav-topic-link" data-search="real enterprise architecture" >Real Enterprise Architecture</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#part-2-interview-questions" class="nav-topic-link" data-search="🧠 part 2 — interview questions" >🧠 Part 2 — Interview Questions</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#part-2-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 2 — scenario-based questions" >🧩 Part 2 — Scenario-Based Questions</a>
+<a href="part-02-azure-hierarchy-azure-resource-manager.html#part-2-quick-revision" class="nav-topic-link" data-search="📋 part 2 — quick revision" >📋 Part 2 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 3 — governance & compliance (rbac + azure policy)">
+      <summary class="nav-part-title"><a href="part-03-governance-compliance-rbac-azure-policy.html" class="nav-part-link">Part 3 — Governance & Compliance (RBAC + Azure Policy)</a></summary>
+      <div class="nav-topics">
+        <a href="part-03-governance-compliance-rbac-azure-policy.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#31-what-is-governance" class="nav-topic-link" data-search="3.1 what is governance?" >3.1 What is Governance?</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#32-rbac-role-based-access-control" class="nav-topic-link" data-search="3.2 rbac (role-based access control)" >3.2 RBAC (Role-Based Access Control)</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#33-azure-policy" class="nav-topic-link" data-search="3.3 azure policy" >3.3 Azure Policy</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#34-azure-blueprints-legacy-know-it-dont-lead-with-it" class="nav-topic-link" data-search="3.4 azure blueprints (legacy — know it, don't lead with it)" >3.4 Azure Blueprints (Legacy — Know It, Don't Lead With It)</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#35-enterprise-governance-strategy" class="nav-topic-link" data-search="3.5 enterprise governance strategy" >3.5 Enterprise Governance Strategy</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#part-3-best-practices" class="nav-topic-link" data-search="✅ part 3 best practices" >✅ Part 3 Best Practices</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#hands-on-assign-an-rbac-role-in-the-portal" class="nav-topic-link" data-search="🖥️ hands-on: assign an rbac role in the portal" >🖥️ Hands-On: Assign an RBAC Role in the Portal</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#part-3-interview-questions" class="nav-topic-link" data-search="🧠 part 3 — interview questions" >🧠 Part 3 — Interview Questions</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#part-3-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 3 — scenario-based questions" >🧩 Part 3 — Scenario-Based Questions</a>
+<a href="part-03-governance-compliance-rbac-azure-policy.html#part-3-quick-revision" class="nav-topic-link" data-search="📋 part 3 — quick revision" >📋 Part 3 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 4 — identity & access management (microsoft entra id)">
+      <summary class="nav-part-title"><a href="part-04-identity-access-management-microsoft-ent.html" class="nav-part-link">Part 4 — Identity & Access Management (Microsoft Entra ID)</a></summary>
+      <div class="nav-topics">
+        <a href="part-04-identity-access-management-microsoft-ent.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#41-what-is-identity" class="nav-topic-link" data-search="4.1 what is identity?" >4.1 What is Identity?</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#42-microsoft-entra-id-formerly-azure-active-directory" class="nav-topic-link" data-search="4.2 microsoft entra id (formerly azure active directory)" >4.2 Microsoft Entra ID (formerly Azure Active Directory)</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#43-users-groups" class="nav-topic-link" data-search="4.3 users & groups" >4.3 Users & Groups</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#44-authentication-vs-authorization" class="nav-topic-link" data-search="4.4 authentication vs authorization" >4.4 Authentication vs Authorization</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#45-service-principal" class="nav-topic-link" data-search="4.5 service principal" >4.5 Service Principal</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#46-managed-identity" class="nav-topic-link" data-search="4.6 managed identity" >4.6 Managed Identity</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#47-app-registration-vs-enterprise-application" class="nav-topic-link" data-search="4.7 app registration vs enterprise application" >4.7 App Registration vs Enterprise Application</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#48-multi-factor-authentication-mfa" class="nav-topic-link" data-search="4.8 multi-factor authentication (mfa)" >4.8 Multi-Factor Authentication (MFA)</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#49-conditional-access" class="nav-topic-link" data-search="4.9 conditional access" >4.9 Conditional Access</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#410-privileged-identity-management-pim" class="nav-topic-link" data-search="4.10 privileged identity management (pim)" >4.10 Privileged Identity Management (PIM)</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#real-identity-flows" class="nav-topic-link" data-search="real identity flows" >Real Identity Flows</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#part-4-best-practices" class="nav-topic-link" data-search="✅ part 4 best practices" >✅ Part 4 Best Practices</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#hands-on-create-a-user-in-microsoft-entra-id" class="nav-topic-link" data-search="🖥️ hands-on: create a user in microsoft entra id" >🖥️ Hands-On: Create a User in Microsoft Entra ID</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#part-4-interview-questions" class="nav-topic-link" data-search="🧠 part 4 — interview questions" >🧠 Part 4 — Interview Questions</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#part-4-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 4 — scenario-based questions" >🧩 Part 4 — Scenario-Based Questions</a>
+<a href="part-04-identity-access-management-microsoft-ent.html#part-4-quick-revision" class="nav-topic-link" data-search="📋 part 4 — quick revision" >📋 Part 4 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 5 — networking foundations">
+      <summary class="nav-part-title"><a href="part-05-networking-foundations.html" class="nav-part-link">Part 5 — Networking Foundations</a></summary>
+      <div class="nav-topics">
+        <a href="part-05-networking-foundations.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-05-networking-foundations.html#51-ip-address-cidr" class="nav-topic-link" data-search="5.1 ip address & cidr" >5.1 IP Address & CIDR</a>
+<a href="part-05-networking-foundations.html#52-virtual-network-vnet-subnet" class="nav-topic-link" data-search="5.2 virtual network (vnet) & subnet" >5.2 Virtual Network (VNet) & Subnet</a>
+<a href="part-05-networking-foundations.html#53-network-interface-nic" class="nav-topic-link" data-search="5.3 network interface (nic)" >5.3 Network Interface (NIC)</a>
+<a href="part-05-networking-foundations.html#54-nsg-asg" class="nav-topic-link" data-search="5.4 nsg & asg" >5.4 NSG & ASG</a>
+<a href="part-05-networking-foundations.html#55-user-defined-route-udr" class="nav-topic-link" data-search="5.5 user defined route (udr)" >5.5 User Defined Route (UDR)</a>
+<a href="part-05-networking-foundations.html#56-dns-private-dns-zone" class="nav-topic-link" data-search="5.6 dns & private dns zone" >5.6 DNS & Private DNS Zone</a>
+<a href="part-05-networking-foundations.html#57-vnet-peering" class="nav-topic-link" data-search="5.7 vnet peering" >5.7 VNet Peering</a>
+<a href="part-05-networking-foundations.html#58-hybrid-connectivity-vpn-gateway-vs-expressroute" class="nav-topic-link" data-search="5.8 hybrid connectivity — vpn gateway vs expressroute" >5.8 Hybrid Connectivity — VPN Gateway vs ExpressRoute</a>
+<a href="part-05-networking-foundations.html#59-nat-gateway" class="nav-topic-link" data-search="5.9 nat gateway" >5.9 NAT Gateway</a>
+<a href="part-05-networking-foundations.html#510-azure-firewall" class="nav-topic-link" data-search="5.10 azure firewall" >5.10 Azure Firewall</a>
+<a href="part-05-networking-foundations.html#511-azure-bastion" class="nav-topic-link" data-search="5.11 azure bastion" >5.11 Azure Bastion</a>
+<a href="part-05-networking-foundations.html#512-service-endpoint-vs-private-endpoint" class="nav-topic-link" data-search="5.12 service endpoint vs private endpoint" >5.12 Service Endpoint vs Private Endpoint</a>
+<a href="part-05-networking-foundations.html#513-traffic-distribution-load-balancer-app-gateway-traffic-manager-front-door" class="nav-topic-link" data-search="5.13 traffic distribution — load balancer, app gateway, traffic manager, front door" >5.13 Traffic Distribution — Load Balancer, App Gateway, Traffic Manager, Front Door</a>
+<a href="part-05-networking-foundations.html#enterprise-network-flow-hub-spoke-style" class="nav-topic-link" data-search="enterprise network flow (hub & spoke style)" >Enterprise Network Flow (Hub & Spoke style)</a>
+<a href="part-05-networking-foundations.html#part-5-best-practices" class="nav-topic-link" data-search="✅ part 5 best practices" >✅ Part 5 Best Practices</a>
+<a href="part-05-networking-foundations.html#hands-on-create-a-virtual-network-in-the-portal" class="nav-topic-link" data-search="🖥️ hands-on: create a virtual network in the portal" >🖥️ Hands-On: Create a Virtual Network in the Portal</a>
+<a href="part-05-networking-foundations.html#part-5-interview-questions" class="nav-topic-link" data-search="🧠 part 5 — interview questions" >🧠 Part 5 — Interview Questions</a>
+<a href="part-05-networking-foundations.html#part-5-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 5 — scenario-based questions" >🧩 Part 5 — Scenario-Based Questions</a>
+<a href="part-05-networking-foundations.html#part-5-quick-revision" class="nav-topic-link" data-search="📋 part 5 — quick revision" >📋 Part 5 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 6 — azure storage">
+      <summary class="nav-part-title"><a href="part-06-azure-storage.html" class="nav-part-link">Part 6 — Azure Storage</a></summary>
+      <div class="nav-topics">
+        <a href="part-06-azure-storage.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-06-azure-storage.html#61-what-is-azure-storage" class="nav-topic-link" data-search="6.1 what is azure storage?" >6.1 What is Azure Storage?</a>
+<a href="part-06-azure-storage.html#62-storage-account" class="nav-topic-link" data-search="6.2 storage account" >6.2 Storage Account</a>
+<a href="part-06-azure-storage.html#63-the-four-storage-services" class="nav-topic-link" data-search="6.3 the four storage services" >6.3 The Four Storage Services</a>
+<a href="part-06-azure-storage.html#64-managed-disk" class="nav-topic-link" data-search="6.4 managed disk" >6.4 Managed Disk</a>
+<a href="part-06-azure-storage.html#65-storage-redundancy-lrs-zrs-grs-ra-grs-gzrs" class="nav-topic-link" data-search="6.5 storage redundancy — lrs, zrs, grs, ra-grs, gzrs" >6.5 Storage Redundancy — LRS, ZRS, GRS, RA-GRS, GZRS</a>
+<a href="part-06-azure-storage.html#66-storage-security-access-keys-vs-sas-token" class="nav-topic-link" data-search="6.6 storage security — access keys vs sas token" >6.6 Storage Security — Access Keys vs SAS Token</a>
+<a href="part-06-azure-storage.html#67-storage-tiers-lifecycle-management" class="nav-topic-link" data-search="6.7 storage tiers & lifecycle management" >6.7 Storage Tiers & Lifecycle Management</a>
+<a href="part-06-azure-storage.html#68-versioning-soft-delete" class="nav-topic-link" data-search="6.8 versioning & soft delete" >6.8 Versioning & Soft Delete</a>
+<a href="part-06-azure-storage.html#69-storage-firewall-private-endpoint" class="nav-topic-link" data-search="6.9 storage firewall & private endpoint" >6.9 Storage Firewall & Private Endpoint</a>
+<a href="part-06-azure-storage.html#part-6-best-practices" class="nav-topic-link" data-search="✅ part 6 best practices" >✅ Part 6 Best Practices</a>
+<a href="part-06-azure-storage.html#hands-on-create-a-storage-account-upload-a-blob" class="nav-topic-link" data-search="🖥️ hands-on: create a storage account & upload a blob" >🖥️ Hands-On: Create a Storage Account & Upload a Blob</a>
+<a href="part-06-azure-storage.html#part-6-interview-questions" class="nav-topic-link" data-search="🧠 part 6 — interview questions" >🧠 Part 6 — Interview Questions</a>
+<a href="part-06-azure-storage.html#part-6-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 6 — scenario-based questions" >🧩 Part 6 — Scenario-Based Questions</a>
+<a href="part-06-azure-storage.html#part-6-quick-revision" class="nav-topic-link" data-search="📋 part 6 — quick revision" >📋 Part 6 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 7 — compute">
+      <summary class="nav-part-title"><a href="part-07-compute.html" class="nav-part-link">Part 7 — Compute</a></summary>
+      <div class="nav-topics">
+        <a href="part-07-compute.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-07-compute.html#71-what-is-azure-compute" class="nav-topic-link" data-search="7.1 what is azure compute?" >7.1 What is Azure Compute?</a>
+<a href="part-07-compute.html#72-virtual-machine-vm" class="nav-topic-link" data-search="7.2 virtual machine (vm)" >7.2 Virtual Machine (VM)</a>
+<a href="part-07-compute.html#73-availability-set-vs-availability-zone-recap" class="nav-topic-link" data-search="7.3 availability set vs availability zone (recap)" >7.3 Availability Set vs Availability Zone (Recap)</a>
+<a href="part-07-compute.html#74-virtual-machine-scale-set-vmss" class="nav-topic-link" data-search="7.4 virtual machine scale set (vmss)" >7.4 Virtual Machine Scale Set (VMSS)</a>
+<a href="part-07-compute.html#75-azure-app-service" class="nav-topic-link" data-search="7.5 azure app service" >7.5 Azure App Service</a>
+<a href="part-07-compute.html#76-azure-functions-serverless" class="nav-topic-link" data-search="7.6 azure functions (serverless)" >7.6 Azure Functions (Serverless)</a>
+<a href="part-07-compute.html#77-azure-kubernetes-service-aks-overview" class="nav-topic-link" data-search="7.7 azure kubernetes service (aks) — overview" >7.7 Azure Kubernetes Service (AKS) — Overview</a>
+<a href="part-07-compute.html#78-azure-container-instance-aci" class="nav-topic-link" data-search="7.8 azure container instance (aci)" >7.8 Azure Container Instance (ACI)</a>
+<a href="part-07-compute.html#79-marketplace-image-vs-custom-image" class="nav-topic-link" data-search="7.9 marketplace image vs custom image" >7.9 Marketplace Image vs Custom Image</a>
+<a href="part-07-compute.html#710-vm-extensions-boot-diagnostics" class="nav-topic-link" data-search="7.10 vm extensions & boot diagnostics" >7.10 VM Extensions & Boot Diagnostics</a>
+<a href="part-07-compute.html#enterprise-compute-architecture" class="nav-topic-link" data-search="enterprise compute architecture" >Enterprise Compute Architecture</a>
+<a href="part-07-compute.html#service-selection-guide" class="nav-topic-link" data-search="service selection guide" >Service Selection Guide</a>
+<a href="part-07-compute.html#part-7-best-practices" class="nav-topic-link" data-search="✅ part 7 best practices" >✅ Part 7 Best Practices</a>
+<a href="part-07-compute.html#hands-on-create-a-virtual-machine-in-the-portal" class="nav-topic-link" data-search="🖥️ hands-on: create a virtual machine in the portal" >🖥️ Hands-On: Create a Virtual Machine in the Portal</a>
+<a href="part-07-compute.html#part-7-interview-questions" class="nav-topic-link" data-search="🧠 part 7 — interview questions" >🧠 Part 7 — Interview Questions</a>
+<a href="part-07-compute.html#part-7-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 7 — scenario-based questions" >🧩 Part 7 — Scenario-Based Questions</a>
+<a href="part-07-compute.html#part-7-quick-revision" class="nav-topic-link" data-search="📋 part 7 — quick revision" >📋 Part 7 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 8 — security">
+      <summary class="nav-part-title"><a href="part-08-security.html" class="nav-part-link">Part 8 — Security</a></summary>
+      <div class="nav-topics">
+        <a href="part-08-security.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-08-security.html#81-what-is-azure-security" class="nav-topic-link" data-search="8.1 what is azure security?" >8.1 What is Azure Security?</a>
+<a href="part-08-security.html#82-shared-responsibility-model-applied-to-security" class="nav-topic-link" data-search="8.2 shared responsibility model (applied to security)" >8.2 Shared Responsibility Model (Applied to Security)</a>
+<a href="part-08-security.html#83-defense-in-depth" class="nav-topic-link" data-search="8.3 defense in depth" >8.3 Defense in Depth</a>
+<a href="part-08-security.html#84-zero-trust-model" class="nav-topic-link" data-search="8.4 zero trust model" >8.4 Zero Trust Model</a>
+<a href="part-08-security.html#85-microsoft-defender-for-cloud" class="nav-topic-link" data-search="8.5 microsoft defender for cloud" >8.5 Microsoft Defender for Cloud</a>
+<a href="part-08-security.html#86-azure-key-vault" class="nav-topic-link" data-search="8.6 azure key vault" >8.6 Azure Key Vault</a>
+<a href="part-08-security.html#87-encryption-at-rest-vs-in-transit" class="nav-topic-link" data-search="8.7 encryption — at rest vs in transit" >8.7 Encryption — At Rest vs In Transit</a>
+<a href="part-08-security.html#88-just-in-time-jit-vm-access" class="nav-topic-link" data-search="8.8 just-in-time (jit) vm access" >8.8 Just-In-Time (JIT) VM Access</a>
+<a href="part-08-security.html#89-layered-network-security" class="nav-topic-link" data-search="8.9 layered network security" >8.9 Layered Network Security</a>
+<a href="part-08-security.html#810-ddos-protection" class="nav-topic-link" data-search="8.10 ddos protection" >8.10 DDoS Protection</a>
+<a href="part-08-security.html#811-identity-security-recap-from-part-4-applied-here" class="nav-topic-link" data-search="8.11 identity security (recap from part 4, applied here)" >8.11 Identity Security (Recap from Part 4, Applied Here)</a>
+<a href="part-08-security.html#enterprise-security-architecture" class="nav-topic-link" data-search="enterprise security architecture" >Enterprise Security Architecture</a>
+<a href="part-08-security.html#part-8-best-practices" class="nav-topic-link" data-search="✅ part 8 best practices" >✅ Part 8 Best Practices</a>
+<a href="part-08-security.html#hands-on-create-a-key-vault-and-store-a-secret" class="nav-topic-link" data-search="🖥️ hands-on: create a key vault and store a secret" >🖥️ Hands-On: Create a Key Vault and Store a Secret</a>
+<a href="part-08-security.html#part-8-interview-questions" class="nav-topic-link" data-search="🧠 part 8 — interview questions" >🧠 Part 8 — Interview Questions</a>
+<a href="part-08-security.html#part-8-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 8 — scenario-based questions" >🧩 Part 8 — Scenario-Based Questions</a>
+<a href="part-08-security.html#part-8-quick-revision" class="nav-topic-link" data-search="📋 part 8 — quick revision" >📋 Part 8 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 9 — monitoring & observability">
+      <summary class="nav-part-title"><a href="part-09-monitoring-observability.html" class="nav-part-link">Part 9 — Monitoring & Observability</a></summary>
+      <div class="nav-topics">
+        <a href="part-09-monitoring-observability.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-09-monitoring-observability.html#91-what-is-monitoring" class="nav-topic-link" data-search="9.1 what is monitoring?" >9.1 What is Monitoring?</a>
+<a href="part-09-monitoring-observability.html#92-azure-monitor" class="nav-topic-link" data-search="9.2 azure monitor" >9.2 Azure Monitor</a>
+<a href="part-09-monitoring-observability.html#93-metrics-vs-logs" class="nav-topic-link" data-search="9.3 metrics vs logs" >9.3 Metrics vs Logs</a>
+<a href="part-09-monitoring-observability.html#94-log-analytics-workspace-kql" class="nav-topic-link" data-search="9.4 log analytics workspace & kql" >9.4 Log Analytics Workspace & KQL</a>
+<a href="part-09-monitoring-observability.html#95-azure-monitor-agent-ama" class="nav-topic-link" data-search="9.5 azure monitor agent (ama)" >9.5 Azure Monitor Agent (AMA)</a>
+<a href="part-09-monitoring-observability.html#96-diagnostic-settings" class="nav-topic-link" data-search="9.6 diagnostic settings" >9.6 Diagnostic Settings</a>
+<a href="part-09-monitoring-observability.html#97-activity-log" class="nav-topic-link" data-search="9.7 activity log" >9.7 Activity Log</a>
+<a href="part-09-monitoring-observability.html#98-alerts-action-groups" class="nav-topic-link" data-search="9.8 alerts & action groups" >9.8 Alerts & Action Groups</a>
+<a href="part-09-monitoring-observability.html#99-application-insights" class="nav-topic-link" data-search="9.9 application insights" >9.9 Application Insights</a>
+<a href="part-09-monitoring-observability.html#910-workbooks" class="nav-topic-link" data-search="9.10 workbooks" >9.10 Workbooks</a>
+<a href="part-09-monitoring-observability.html#complete-monitoring-flow" class="nav-topic-link" data-search="complete monitoring flow" >Complete Monitoring Flow</a>
+<a href="part-09-monitoring-observability.html#part-9-best-practices" class="nav-topic-link" data-search="✅ part 9 best practices" >✅ Part 9 Best Practices</a>
+<a href="part-09-monitoring-observability.html#hands-on-create-a-metric-alert-rule" class="nav-topic-link" data-search="🖥️ hands-on: create a metric alert rule" >🖥️ Hands-On: Create a Metric Alert Rule</a>
+<a href="part-09-monitoring-observability.html#part-9-interview-questions" class="nav-topic-link" data-search="🧠 part 9 — interview questions" >🧠 Part 9 — Interview Questions</a>
+<a href="part-09-monitoring-observability.html#part-9-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 9 — scenario-based questions" >🧩 Part 9 — Scenario-Based Questions</a>
+<a href="part-09-monitoring-observability.html#part-9-quick-revision" class="nav-topic-link" data-search="📋 part 9 — quick revision" >📋 Part 9 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 10 — backup & disaster recovery">
+      <summary class="nav-part-title"><a href="part-10-backup-disaster-recovery.html" class="nav-part-link">Part 10 — Backup & Disaster Recovery</a></summary>
+      <div class="nav-topics">
+        <a href="part-10-backup-disaster-recovery.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-10-backup-disaster-recovery.html#101-business-continuity-vs-disaster-recovery" class="nav-topic-link" data-search="10.1 business continuity vs disaster recovery" >10.1 Business Continuity vs Disaster Recovery</a>
+<a href="part-10-backup-disaster-recovery.html#102-recovery-services-vault-rsv" class="nav-topic-link" data-search="10.2 recovery services vault (rsv)" >10.2 Recovery Services Vault (RSV)</a>
+<a href="part-10-backup-disaster-recovery.html#103-azure-backup" class="nav-topic-link" data-search="10.3 azure backup" >10.3 Azure Backup</a>
+<a href="part-10-backup-disaster-recovery.html#104-azure-site-recovery-asr" class="nav-topic-link" data-search="10.4 azure site recovery (asr)" >10.4 Azure Site Recovery (ASR)</a>
+<a href="part-10-backup-disaster-recovery.html#105-rpo-vs-rto" class="nav-topic-link" data-search="10.5 rpo vs rto" >10.5 RPO vs RTO</a>
+<a href="part-10-backup-disaster-recovery.html#106-soft-delete-cross-region-restore" class="nav-topic-link" data-search="10.6 soft delete & cross region restore" >10.6 Soft Delete & Cross Region Restore</a>
+<a href="part-10-backup-disaster-recovery.html#107-backup-security-best-practices" class="nav-topic-link" data-search="10.7 backup security best practices" >10.7 Backup Security Best Practices</a>
+<a href="part-10-backup-disaster-recovery.html#backup-architecture" class="nav-topic-link" data-search="backup architecture" >Backup Architecture</a>
+<a href="part-10-backup-disaster-recovery.html#disaster-recovery-architecture" class="nav-topic-link" data-search="disaster recovery architecture" >Disaster Recovery Architecture</a>
+<a href="part-10-backup-disaster-recovery.html#part-10-best-practices" class="nav-topic-link" data-search="✅ part 10 best practices" >✅ Part 10 Best Practices</a>
+<a href="part-10-backup-disaster-recovery.html#hands-on-create-a-recovery-services-vault" class="nav-topic-link" data-search="🖥️ hands-on: create a recovery services vault" >🖥️ Hands-On: Create a Recovery Services Vault</a>
+<a href="part-10-backup-disaster-recovery.html#part-10-interview-questions" class="nav-topic-link" data-search="🧠 part 10 — interview questions" >🧠 Part 10 — Interview Questions</a>
+<a href="part-10-backup-disaster-recovery.html#part-10-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 10 — scenario-based questions" >🧩 Part 10 — Scenario-Based Questions</a>
+<a href="part-10-backup-disaster-recovery.html#part-10-quick-revision" class="nav-topic-link" data-search="📋 part 10 — quick revision" >📋 Part 10 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part current-page" open data-search="part 11 — cost optimization">
+      <summary class="nav-part-title"><a href="part-11-cost-optimization.html" class="nav-part-link" data-current="1">Part 11 — Cost Optimization</a></summary>
+      <div class="nav-topics">
+        <a href="#concept-map" class="nav-topic-link" data-search="🗺️ concept map" data-local="1">🗺️ Concept Map</a>
+<a href="#111-azure-pricing-model" class="nav-topic-link" data-search="11.1 azure pricing model" data-local="1">11.1 Azure Pricing Model</a>
+<a href="#112-cost-management-billing" class="nav-topic-link" data-search="11.2 cost management + billing" data-local="1">11.2 Cost Management + Billing</a>
+<a href="#113-azure-advisor" class="nav-topic-link" data-search="11.3 azure advisor" data-local="1">11.3 Azure Advisor</a>
+<a href="#114-reservations-vs-savings-plans-vs-spot-vms" class="nav-topic-link" data-search="11.4 reservations vs savings plans vs spot vms" data-local="1">11.4 Reservations vs Savings Plans vs Spot VMs</a>
+<a href="#115-auto-shutdown" class="nav-topic-link" data-search="11.5 auto shutdown" data-local="1">11.5 Auto Shutdown</a>
+<a href="#116-resource-tagging-for-cost-allocation" class="nav-topic-link" data-search="11.6 resource tagging (for cost allocation)" data-local="1">11.6 Resource Tagging (for Cost Allocation)</a>
+<a href="#117-cost-governance" class="nav-topic-link" data-search="11.7 cost governance" data-local="1">11.7 Cost Governance</a>
+<a href="#enterprise-cost-optimization-checklist" class="nav-topic-link" data-search="enterprise cost optimization checklist" data-local="1">Enterprise Cost Optimization Checklist</a>
+<a href="#enterprise-cost-flow" class="nav-topic-link" data-search="enterprise cost flow" data-local="1">Enterprise Cost Flow</a>
+<a href="#part-11-best-practices" class="nav-topic-link" data-search="✅ part 11 best practices" data-local="1">✅ Part 11 Best Practices</a>
+<a href="#hands-on-create-a-budget-in-the-portal" class="nav-topic-link" data-search="🖥️ hands-on: create a budget in the portal" data-local="1">🖥️ Hands-On: Create a Budget in the Portal</a>
+<a href="#part-11-interview-questions" class="nav-topic-link" data-search="🧠 part 11 — interview questions" data-local="1">🧠 Part 11 — Interview Questions</a>
+<a href="#part-11-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 11 — scenario-based questions" data-local="1">🧩 Part 11 — Scenario-Based Questions</a>
+<a href="#part-11-quick-revision" class="nav-topic-link" data-search="📋 part 11 — quick revision" data-local="1">📋 Part 11 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 12 — terraform on azure (infrastructure as code)">
+      <summary class="nav-part-title"><a href="part-12-terraform-on-azure-infrastructure-as-cod.html" class="nav-part-link">Part 12 — Terraform on Azure (Infrastructure as Code)</a></summary>
+      <div class="nav-topics">
+        <a href="part-12-terraform-on-azure-infrastructure-as-cod.html#concept-map" class="nav-topic-link" data-search="🗺️ concept map" >🗺️ Concept Map</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#121-what-is-infrastructure-as-code-iac" class="nav-topic-link" data-search="12.1 what is infrastructure as code (iac)?" >12.1 What is Infrastructure as Code (IaC)?</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#122-terraform-architecture" class="nav-topic-link" data-search="12.2 terraform architecture" >12.2 Terraform Architecture</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#123-azurerm-provider" class="nav-topic-link" data-search="12.3 azurerm provider" >12.3 AzureRM Provider</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#124-authentication-methods" class="nav-topic-link" data-search="12.4 authentication methods" >12.4 Authentication Methods</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#125-backend-terraform-state" class="nav-topic-link" data-search="12.5 backend & terraform state" >12.5 Backend & Terraform State</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#126-variables-outputs-data-sources" class="nav-topic-link" data-search="12.6 variables, outputs & data sources" >12.6 Variables, Outputs & Data Sources</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#127-modules" class="nav-topic-link" data-search="12.7 modules" >12.7 Modules</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#128-lifecycle-meta-arguments-depends_on" class="nav-topic-link" data-search="12.8 lifecycle meta-arguments & depends_on" >12.8 Lifecycle Meta-Arguments & depends_on</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#129-workspaces-import" class="nav-topic-link" data-search="12.9 workspaces & import" >12.9 Workspaces & Import</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#1210-enterprise-terraform-folder-structure" class="nav-topic-link" data-search="12.10 enterprise terraform folder structure" >12.10 Enterprise Terraform Folder Structure</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#1211-cicd-integration" class="nav-topic-link" data-search="12.11 ci/cd integration" >12.11 CI/CD Integration</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#enterprise-terraform-architecture" class="nav-topic-link" data-search="enterprise terraform architecture" >Enterprise Terraform Architecture</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#part-12-best-practices" class="nav-topic-link" data-search="✅ part 12 best practices" >✅ Part 12 Best Practices</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#part-12-interview-questions" class="nav-topic-link" data-search="🧠 part 12 — interview questions" >🧠 Part 12 — Interview Questions</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#part-12-scenario-based-questions" class="nav-topic-link" data-search="🧩 part 12 — scenario-based questions" >🧩 Part 12 — Scenario-Based Questions</a>
+<a href="part-12-terraform-on-azure-infrastructure-as-cod.html#part-12-quick-revision" class="nav-topic-link" data-search="📋 part 12 — quick revision" >📋 Part 12 — Quick Revision</a>
+
+      </div>
+    </details>
+    
+
+    <details class="nav-part" data-search="part 13 — what's next: the azure landing zone">
+      <summary class="nav-part-title"><a href="part-13-whats-next-the-azure-landing-zone.html" class="nav-part-link">Part 13 — What's Next: The Azure Landing Zone</a></summary>
+      <div class="nav-topics">
+        <a href="part-13-whats-next-the-azure-landing-zone.html#youve-completed-the-foundation" class="nav-topic-link" data-search="🎉 you've completed the foundation" >🎉 You've Completed the Foundation</a>
+<a href="part-13-whats-next-the-azure-landing-zone.html#what-an-azure-landing-zone-actually-is" class="nav-topic-link" data-search="what an azure landing zone actually is" >What an Azure Landing Zone Actually Is</a>
+<a href="part-13-whats-next-the-azure-landing-zone.html#what-comes-next-beyond-these-notes" class="nav-topic-link" data-search="what comes next (beyond these notes)" >What Comes Next (Beyond These Notes)</a>
+<a href="part-13-whats-next-the-azure-landing-zone.html#how-to-use-this-guide-for-interview-prep" class="nav-topic-link" data-search="📖 how to use this guide for interview prep" >📖 How to Use This Guide for Interview Prep</a>
+
+      </div>
+    </details>
+    
+    </div>
+  </nav>
+  <div class="main-wrap">
+    <main class="content" id="content">
+      <div class="page-topbar">
+<span><a href="index.html">Study Guide</a> / Part 11 of 13</span>
+<div class="progress-track"><div class="progress-fill" style="width:85%"></div></div>
+<span>85% through the course</span>
+</div><h1 id="part-11-cost-optimization">Part 11 — Cost Optimization</h1>
+<blockquote class="callout-goal">
+<p>🎯 <strong>Goal:</strong> Learn to monitor, control, and optimize Azure costs. At the 5+ year interview level, it's not enough to deploy resources — you're expected to make them <strong>cost-efficient</strong> too.</p>
+</blockquote>
+<h2 id="concept-map">🗺️ Concept Map</h2>
+<div class="mermaid">flowchart TD
+    Pricing["Azure Pricing\n(Pay-As-You-Go)"] --&gt; CM["Cost Management + Billing"]
+    CM --&gt; CA["Cost Analysis"]
+    CM --&gt; Budget["Budgets"]
+    Budget --&gt; Alert["Cost Alerts"]
+    CM --&gt; Advisor["Azure Advisor"]
+    Advisor --&gt; Res["Reservations"]
+    Advisor --&gt; SP["Savings Plans"]
+    Advisor --&gt; Spot["Spot VMs"]
+    CM --&gt; Tags["Resource Tagging"]
+    CM --&gt; Gov["Cost Governance"]
+</div>
+<h2 id="111-azure-pricing-model">11.1 Azure Pricing Model</h2>
+<p>Azure follows a <strong>Pay-As-You-Go</strong> model — you pay only for what you actually use. Pricing depends on VM size, storage type, data transfer, region, and how long a resource actually runs.</p>
+<blockquote class="callout-interview">
+<p>🧠 <strong>Interview Angle:</strong> <em>"Azure follows a Pay-As-You-Go pricing model where customers are charged based on actual resource usage."</em> A VM running 24 hours costs more than the same VM stopped (deallocated) — deallocating, not just powering off inside the OS, is what actually stops billing for compute.</p>
+</blockquote>
+<h2 id="112-cost-management-billing">11.2 Cost Management + Billing</h2>
+<p>Helps organizations <strong>monitor costs, analyze spending, forecast future costs,</strong> and <strong>optimize resources.</strong> Key features: Cost Analysis, Budgets, Alerts, Reports, Forecast.</p>
+<h3 id="cost-analysis">Cost Analysis</h3>
+<p>Shows detailed spending, filterable by Subscription, Resource Group, Service, Region, or <strong>Tags</strong>.</p>
+<h3 id="budgets">Budgets</h3>
+<p>Define a spending limit and get alerted as you approach it.</p>
+<blockquote class="callout-project">
+<p>🏢 <strong>Real Project Example:</strong> Monthly budget = ₹50,000. Alert fires at 80% spent, another alert at 100% — giving the team advance warning before overspending, not just a post-mortem.</p>
+</blockquote>
+<h3 id="cost-alerts">Cost Alerts</h3>
+<p>Automatically notify administrators when spend crosses a threshold — e.g. the Finance team receives a monthly cost alert email automatically.</p>
+<h2 id="113-azure-advisor">11.3 Azure Advisor</h2>
+<p><strong>Azure Advisor analyzes your resources and gives recommendations</strong> across five pillars: Cost, Performance, Security, Reliability, Operational Excellence.</p>
+<p><strong>Typical cost recommendations:</strong> resize an oversized VM, delete unused disks, remove idle Public IPs, purchase Reserved Instances.</p>
+<h2 id="114-reservations-vs-savings-plans-vs-spot-vms">11.4 Reservations vs Savings Plans vs Spot VMs</h2>
+<p>Three different ways to save money on compute — each fits a different workload pattern.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Reserved Instances</th>
+<th>Savings Plan</th>
+<th>Spot VM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Commitment</td>
+<td>1 or 3 years, fixed resource</td>
+<td>1 or 3 years, committed hourly spend</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>Lower — locked to a specific VM type/region</td>
+<td>Higher — flexible across eligible compute</td>
+<td>Highest — but Azure can evict anytime</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Predictable, 24×7 production workloads</td>
+<td>Changing/evolving workloads that still run steadily</td>
+<td>Testing, CI/CD, batch jobs, temporary workloads</td>
+</tr>
+<tr>
+<td>Risk</td>
+<td>None (guaranteed capacity)</td>
+<td>None (guaranteed capacity)</td>
+<td>Can be evicted when Azure needs the capacity back</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="callout-warning">
+<p>⚠️ <strong>Common Mistake:</strong> Never use Spot VMs for production applications or critical databases — they can be evicted without notice whenever Azure needs the capacity.</p>
+<p>🧠 <strong>Interview Angle:</strong> <em>"Reserved Instances lock in a specific resource for predictable savings. Savings Plans offer more flexibility across eligible services based on committed hourly spend. Spot VMs are cheapest but can be evicted anytime — great for interruption-tolerant workloads only."</em></p>
+</blockquote>
+<h2 id="115-auto-shutdown">11.5 Auto Shutdown</h2>
+<p>Automatically shuts down <strong>development/test VMs</strong> after office hours (e.g. 7 PM) and they're started again the next morning — a simple, high-impact way to cut non-production compute cost.</p>
+<h2 id="116-resource-tagging-for-cost-allocation">11.6 Resource Tagging (for Cost Allocation)</h2>
+<p>Tags let you break down spend by <code>Environment</code>, <code>Owner</code>, <code>Project</code>, <code>Department</code>, <code>Application</code> — directly feeding into Cost Analysis reports.</p>
+<blockquote class="callout-practice">
+<p>✅ <strong>Best Practice:</strong> Every resource should carry standard tags — this is the <em>only</em> practical way to answer "how much does each team/project actually cost us?" at scale.</p>
+</blockquote>
+<h2 id="117-cost-governance">11.7 Cost Governance</h2>
+<p>Policies that keep spending under control — approved VM sizes only, budget limits, mandatory tagging, scheduled resource cleanup, regular cost reviews.</p>
+<blockquote class="callout-project">
+<p>🏢 <strong>Real Project Example:</strong> Policy: <em>"Only D-Series VMs allowed."</em> A developer requests an M-Series VM → <strong>denied automatically</strong> by Azure Policy, before it ever gets provisioned.</p>
+</blockquote>
+<h2 id="enterprise-cost-optimization-checklist">Enterprise Cost Optimization Checklist</h2>
+<ol>
+<li><strong>Delete unused resources</strong> — orphaned Public IPs, unattached NICs, unused disks, old snapshots.</li>
+<li><strong>Right-size VMs</strong> — don't run a 16-vCPU VM for a 2-vCPU workload.</li>
+<li><strong>Use Auto Shutdown</strong> on development VMs only.</li>
+<li><strong>Use Reserved Instances</strong> for predictable 24×7 production workloads.</li>
+<li><strong>Use Spot VMs</strong> for testing, batch jobs, and CI/CD.</li>
+<li><strong>Use Lifecycle Management</strong> to move old blobs Hot → Cool → Archive.</li>
+<li><strong>Monitor cost monthly</strong> — Cost Analysis, Advisor, Budgets, every month, not just once at setup.</li>
+</ol>
+<h2 id="enterprise-cost-flow">Enterprise Cost Flow</h2>
+<div class="mermaid">flowchart LR
+    Res["Azure Resources"] --&gt; CM["Cost Management"] --&gt; CA["Cost Analysis"] --&gt; Budget["Budget"] --&gt; Alert["Alert"] --&gt; Finance["Finance Team"] --&gt; Opt["Optimization Actions"]
+</div>
+<h2 id="part-11-best-practices">✅ Part 11 Best Practices</h2>
+<ul>
+<li>✅ Create a <strong>Budget</strong> for every subscription.</li>
+<li>✅ Configure <strong>Cost Alerts</strong>.</li>
+<li>✅ Review <strong>Azure Advisor</strong> recommendations regularly, not just once.</li>
+<li>✅ Enable <strong>Auto Shutdown</strong> for Dev/Test VMs.</li>
+<li>✅ <strong>Right-size</strong> VMs based on actual utilization data.</li>
+<li>✅ Use <strong>Reserved Instances</strong> for predictable workloads, <strong>Savings Plans</strong> for flexible ones.</li>
+<li>✅ Delete unused resources proactively.</li>
+<li>✅ Apply standard <strong>Resource Tags</strong> everywhere.</li>
+<li>✅ Review spending <strong>every month</strong> — cost drift is gradual and easy to miss.</li>
+</ul>
+<hr/>
+<h2 id="hands-on-create-a-budget-in-the-portal">🖥️ Hands-On: Create a Budget in the Portal</h2>
+<ol>
+<li>Navigate to your <strong>Subscription</strong> (or a Resource Group) → select <strong>Budgets</strong> from the left menu.</li>
+</ol>
+<p><img alt="Budgets list" decoding="async" loading="lazy" src="https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/media/tutorial-acm-create-budgets/budgets-cost-management.png"/></p>
+<ol start="2">
+<li>Select <strong>+ Add</strong>. Confirm the scope, add any filters (e.g. only a specific Resource Group or service), name the budget, and choose a reset period — Monthly, Quarterly, or Annually.</li>
+<li>Set the budget amount — the Portal shows a graph based on your forecasted cost to help you pick a sensible number.</li>
+</ol>
+<p><img alt="Create a monthly budget" decoding="async" loading="lazy" src="https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/media/tutorial-acm-create-budgets/create-monthly-budget.png"/></p>
+<ol start="4">
+<li>Select <strong>Next</strong> to configure alerts — add at least one threshold (e.g. 80%) and an email address.</li>
+</ol>
+<p><img alt="Configure budget alert conditions" decoding="async" loading="lazy" src="https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/media/tutorial-acm-create-budgets/budget-set-alert.png"/></p>
+<ol start="5">
+<li>Select <strong>Create</strong>. Your budget now appears in <strong>Cost Analysis</strong>, tracked against real spending.</li>
+</ol>
+<p><img alt="Budget shown in cost analysis" decoding="async" loading="lazy" src="https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/media/tutorial-acm-create-budgets/cost-analysis.png"/></p>
+<blockquote class="callout-tip">
+<p>💡 <strong>Try it yourself:</strong> Go to <strong>Azure Advisor</strong> (search the Portal for it) → open the <strong>Cost</strong> tab → look through the actual recommendations for your subscription (oversized VMs, unused disks, idle Public IPs). This is the exact workflow a DevOps engineer runs monthly.</p>
+</blockquote>
+<hr/>
+<h2 id="part-11-interview-questions">🧠 Part 11 — Interview Questions</h2>
+<details class="qa-item"><summary>What is Azure Cost Management?</summary><div class="qa-answer">
+<p>A set of tools that give visibility into cloud spending and help monitor, analyze, forecast, and optimize Azure costs.</p>
+</div></details><details class="qa-item"><summary>What is Cost Analysis?</summary><div class="qa-answer">
+<p>A feature that shows detailed spending breakdowns, filterable by subscription, resource group, service, region, or tags.</p>
+</div></details><details class="qa-item"><summary>What is Azure Advisor?</summary><div class="qa-answer">
+<p>A service that analyzes your Azure resources and provides recommendations across Cost, Performance, Security, Reliability, and Operational Excellence.</p>
+</div></details><details class="qa-item"><summary>What are Budgets?</summary><div class="qa-answer">
+<p>Defined spending limits, scoped to a subscription, resource group, or management group, used to track and control cost with configurable alert thresholds.</p>
+</div></details><details class="qa-item"><summary>What are Cost Alerts?</summary><div class="qa-answer">
+<p>Notifications automatically sent to administrators or finance teams when spending crosses a defined threshold of a budget.</p>
+</div></details><details class="qa-item"><summary>What are Reserved Instances?</summary><div class="qa-answer">
+<p>A pricing option where you commit to using a specific resource for 1 or 3 years in exchange for significantly lower cost — best for predictable, always-on production workloads.</p>
+</div></details><details class="qa-item"><summary>What is Azure Savings Plan?</summary><div class="qa-answer">
+<p>A flexible discount model based on committing to a fixed hourly spend across eligible compute services for 1 or 3 years, offering more flexibility than Reserved Instances.</p>
+</div></details><details class="qa-item"><summary>What is a Spot VM?</summary><div class="qa-answer">
+<p>A very low-cost VM that uses Azure's spare, unused capacity — but Azure can evict it at any time when that capacity is needed elsewhere, so it's unsuitable for production.</p>
+</div></details><details class="qa-item"><summary>What is Auto Shutdown?</summary><div class="qa-answer">
+<p>A feature that automatically powers off development/test VMs after a scheduled time (e.g. after office hours) to reduce unnecessary compute costs.</p>
+</div></details><details class="qa-item"><summary>Why are Resource Tags important for cost management?</summary><div class="qa-answer">
+<p>They allow spending to be broken down and reported by dimensions like Environment, Owner, Project, or Department — without tags, cost attribution across teams is essentially impossible.</p>
+</div></details><h2 id="part-11-scenario-based-questions">🧩 Part 11 — Scenario-Based Questions</h2>
+<details class="qa-item"><summary>Your development VMs run 24 hours a day, but developers only use them during office hours. How will you reduce the cost?</summary><div class="qa-answer">
+<p>Enable Auto Shutdown so the VMs stop automatically after working hours — this removes unnecessary compute cost with no impact on the developers' actual working time.</p>
+</div></details><details class="qa-item"><summary>Your production application runs continuously throughout the year. Which pricing option will you choose?</summary><div class="qa-answer">
+<p>Reserved Instances — the workload is predictable and runs 24×7, so a 1- or 3-year reservation delivers significant savings over Pay-As-You-Go.</p>
+</div></details><details class="qa-item"><summary>Your CI/CD pipeline needs temporary VMs for build jobs. Which compute option can reduce costs?</summary><div class="qa-answer">
+<p>Spot Virtual Machines — build jobs are temporary and can tolerate interruptions, making Spot VMs a cost-effective fit.</p>
+</div></details><details class="qa-item"><summary>Your finance team wants to know how much each department spends in Azure. How will you achieve this?</summary><div class="qa-answer">
+<p>Apply Resource Tags such as Department, Project, and Environment to all resources, then use Cost Analysis to filter and report spending by those tags.</p>
+</div></details><details class="qa-item"><summary>Your monthly Azure bill increased unexpectedly. How will you investigate it?</summary><div class="qa-answer">
+<p>Review Cost Analysis to identify which resources or services increased in cost, check Azure Advisor recommendations, remove unused resources, right-size VMs where needed, and verify whether new deployments caused the increase.</p>
+</div></details><h2 id="part-11-quick-revision">📋 Part 11 — Quick Revision</h2>
+<ul>
+<li><strong>Pay-As-You-Go</strong> = pay only for what you use.</li>
+<li><strong>Cost Management</strong> = monitor and optimize spending. <strong>Cost Analysis</strong> = detailed spend reports.</li>
+<li><strong>Budget</strong> = a planned spending limit. <strong>Cost Alerts</strong> = notifications at spend thresholds.</li>
+<li><strong>Azure Advisor</strong> = optimization recommendations across 5 pillars.</li>
+<li><strong>Reserved Instances</strong> = lower cost, fixed resource, predictable 24×7 workloads.</li>
+<li><strong>Savings Plan</strong> = flexible discount via committed hourly spend.</li>
+<li><strong>Spot VM</strong> = cheapest, but can be evicted — never for production.</li>
+<li><strong>Auto Shutdown</strong> = cuts Dev/Test VM cost automatically.</li>
+<li><strong>Resource Tags</strong> = enable cost allocation &amp; reporting.</li>
+<li><strong>Cost Governance</strong> = policies (approved sizes, budgets, cleanup, reviews) that keep spend under control.</li>
+</ul>
+<hr/><div class="part-pager"><a class="pager-link prev" href="part-10-backup-disaster-recovery.html">
+<span class="dir">← PREVIOUS</span>
+<span class="ptitle">Backup &amp; Disaster Recovery</span>
+</a><a class="pager-link next" href="part-12-terraform-on-azure-infrastructure-as-cod.html">
+<span class="dir">NEXT →</span>
+<span class="ptitle">Terraform on Azure (Infrastructure as Code)</span>
+</a></div>
+      <div class="footer">
+        AZURE FUNDAMENTALS &amp; LANDING ZONE PREREQUISITES — INTERVIEW-READY STUDY GUIDE<br>
+        Compiled from a personal Azure DevOps interview-prep roadmap · Portal walkthroughs cross-referenced with Microsoft Learn
+      </div>
+    </main>
+  </div>
+</div>
+<script src="./assets/js/app.js" defer></script>
+</body>
+</html>
