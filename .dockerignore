@@ -1,0 +1,9 @@
+dist/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+*.zip
+Dockerfile
+docker-compose.yml
+.dockerignore

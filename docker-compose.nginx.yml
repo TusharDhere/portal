@@ -1,0 +1,11 @@
+# Alternative: serve the static site with nginx instead of Python.
+# docker compose -f docker-compose.nginx.yml up --build -d
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    image: azure-portal-sop-kb:nginx
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
